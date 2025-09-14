@@ -36,7 +36,7 @@ export default function Home() {
         >
           <div className="relative w-32 h-32 md:w-48 md:h-48">
             <Image
-              src="/profile.jpg"
+              src="https://i.imgur.com/3aGfrx4.jpg"
               alt="Rafi Mohammad Hasib"
               fill
               className="rounded-full object-cover border-4 border-background shadow-lg"
