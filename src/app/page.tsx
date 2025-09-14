@@ -70,7 +70,7 @@ export default function Home() {
           </div>
           <div className="flex justify-center items-center">
             <Image
-              src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=400"
+              src="/profile.jpg"
               alt="Rafi Mohammad Hasib"
               width={400}
               height={400}
