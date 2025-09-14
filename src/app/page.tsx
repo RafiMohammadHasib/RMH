@@ -3,7 +3,7 @@ import Link from "next/link";
 import { personalInfo, skills, socialLinks, experiences, education } from "@/lib/data";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Mail, Briefcase, Download, Github, Linkedin, ArrowRight, Code } from "lucide-react";
+import { Mail, Briefcase, Download, Github, Linkedin, ArrowRight, Code, GraduationCap } from "lucide-react";
 import GitHubProjects from "@/components/github-projects";
 
 export default function Home() {
@@ -20,6 +20,7 @@ export default function Home() {
           <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
             <a href="#about" className="text-foreground/60 hover:text-foreground">About</a>
             <a href="#experience" className="text-foreground/60 hover:text-foreground">Experience</a>
+            <a href="#education" className="text-foreground/60 hover:text-foreground">Education</a>
             <a href="#portfolio" className="text-foreground/60 hover:text-foreground">Portfolio</a>
             <Button asChild>
               <a href="#contact">Contact</a>
@@ -100,7 +101,7 @@ export default function Home() {
             <div className="container">
               <div className="mx-auto max-w-4xl text-center mb-12">
                 <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
-                  My Design Journey
+                  My Professional Journey
                 </h2>
                  <p className="mt-4 text-lg text-muted-foreground">
                   A timeline of my professional experience and growth.
@@ -129,11 +130,45 @@ export default function Home() {
             </div>
         </section>
 
-        <section id="portfolio" className="py-16 md:py-24 bg-card border-y">
+        <section id="education" className="py-16 md:py-24 bg-card border-y">
           <div className="container">
             <div className="mx-auto max-w-4xl text-center mb-12">
               <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
-                Latest Works
+                My Academic Background
+              </h2>
+              <p className="mt-4 text-lg text-muted-foreground">
+                My educational milestones and key projects.
+              </p>
+            </div>
+            <div className="grid gap-8 md:grid-cols-2 max-w-5xl mx-auto">
+              {education.map((edu, index) => (
+                <div key={index} className="flex gap-6">
+                  <div className="flex-shrink-0">
+                    <GraduationCap className="h-8 w-8 text-primary" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground">{edu.period}</p>
+                    <h3 className="text-xl font-bold mt-1">{edu.degree}</h3>
+                    <p className="text-md text-primary">{edu.institution}</p>
+                    {edu.projects && (
+                      <ul className="mt-4 list-disc list-inside text-muted-foreground space-y-2">
+                        {edu.projects.map((project, i) => (
+                          <li key={i}>{project}</li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="portfolio" className="py-16 md:py-24">
+          <div className="container">
+            <div className="mx-auto max-w-4xl text-center mb-12">
+              <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
+                My Work
               </h2>
               <p className="mt-4 text-lg text-muted-foreground">
                 A selection of my projects.
@@ -143,7 +178,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="contact" className="py-16 md:py-24 text-center">
+        <section id="contact" className="py-16 md:py-24 text-center bg-card border-t">
           <div className="container">
               <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
                 Got a Vision? Let's Bring It to Life!
