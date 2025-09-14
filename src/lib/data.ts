@@ -36,7 +36,7 @@ export const skills = [
 export const experiences = [
     {
         company: "Euro IT",
-        period: "July 2024 - Present",
+        period: "July 2025 - Present",
         title: "Business Developer and Assistant Software Engineer",
         responsibilities: [
             "Talk to clients for business needs, offer services, and arrange meetings to close deals.",
@@ -50,7 +50,7 @@ export const experiences = [
     },
     {
         company: "Lnkits Technology",
-        period: "September 2023 - April 2024",
+        period: "September 2024 - May 2025",
         title: "Business Development Executive",
         responsibilities: [
             "Met with new and current clients to understand their needs and explain software services.",
@@ -63,7 +63,7 @@ export const experiences = [
     },
     {
         company: "Softifybd Limited",
-        period: "October 2022 - August 2023",
+        period: "October 2023 - August 2024",
         title: "Sales and Marketing Specialist (Software)",
         responsibilities: [
             "Attend client business meetings to understand needs and recommend suitable software solutions.",
@@ -77,7 +77,7 @@ export const experiences = [
     },
     {
         company: "INovex Idea Solution Limited",
-        period: "May 2022 - October 2022",
+        period: "May 2023 - October 2023",
         title: "Sales and Marketing Executive (Software)",
         responsibilities: [
             "Created and posted content on social media to promote company services.",
@@ -88,7 +88,7 @@ export const experiences = [
     },
     {
         company: "Digital Marketing Solution (Pvt.) Limited",
-        period: "November 2021 - April 2022",
+        period: "November 2022 - April 2023",
         title: "Marketing Executive",
         responsibilities: [
             "Tested websites and found areas that needed fixing or improvement.",
