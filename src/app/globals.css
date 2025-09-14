@@ -55,5 +55,19 @@
   }
   body {
     @apply bg-background text-foreground;
+    background-image: radial-gradient(hsl(var(--border)) 0.5px, transparent 0.5px);
+    background-size: 16px 16px;
   }
+}
+
+/* Scroll Animation */
+.scroll-animation {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-animation.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
