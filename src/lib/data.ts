@@ -17,6 +17,19 @@ export const skills = [
   "Node.js",
   "Project Management",
   "SQL & NoSQL Databases",
+  "C",
+  "Python",
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "Manual Testing",
+  "MySQL",
+  "Technical Support",
+  "MS Office",
+  "Photoshop",
+  "Video Editing",
+  "Corporate Sales",
+  "IT Consultation",
 ];
 
 export const experiences = [
@@ -54,52 +67,37 @@ export const experiences = [
         responsibilities: [
             "Created and posted content on social media to promote company services."
         ]
+    },
+    {
+        company: "Digital Marketing Solution (Pvt.) Limited",
+        period: "November 2022 - April 2023",
+        title: "Marketing Executive",
+        responsibilities: [
+            "Tested websites and found areas that needed fixing or improvement.",
+            "Managed Facebook ads to reach the right audience and increase views.",
+            "Wrote clear content for ads and websites while using basic SEO rules.",
+            "Helped improve local search rankings through SEO strategies."
+        ]
     }
 ];
 
-export const portfolio = [
-  {
-    id: "proj1",
-    title: "E-commerce Platform",
-    description:
-      "A full-featured e-commerce website with a custom CMS and payment gateway integration.",
-    imageUrlId: "p1",
-    tags: ["Next.js", "Stripe", "PostgreSQL"],
-    liveUrl: "#",
-    githubUrl: "#",
-  },
-  {
-    id: "proj2",
-    title: "Mobile Banking App",
-    description:
-      "A secure and user-friendly mobile app for a new-age digital bank.",
-    imageUrlId: "p2",
-    tags: ["React Native", "Firebase", "UX Design"],
-    liveUrl: "#",
-    githubUrl: "#",
-  },
-  {
-    id: "proj3",
-    title: "Data Analytics Dashboard",
-    description:
-      "A real-time data visualization dashboard for tracking business KPIs.",
-    imageUrlId: "p3",
-    tags: ["React", "D3.js", "Python (Flask)"],
-    liveUrl: "#",
-    githubUrl: "#",
-  },
-  {
-    id: "proj4",
-    title: "SaaS Project Management Tool",
-    description:
-      "A collaborative tool to help teams manage tasks, deadlines, and resources efficiently.",
-    imageUrlId: "p4",
-    tags: ["Vue.js", "Node.js", "MongoDB"],
-    liveUrl: "#",
-    githubUrl: "#",
-  },
-];
-
+export const education = [
+    {
+        institution: "East West University",
+        degree: "Bachelor of Science in Computer Science and Engineering",
+        period: "09/2016 - 12/2021"
+    },
+    {
+        institution: "Dhaka Imperial College",
+        degree: "Higher Secondary Certificate (H.S.C.) | Science",
+        period: "04/2014 - 07/2016"
+    },
+    {
+        institution: "Faizur Rahman Ideal Institute",
+        degree: "Secondary School Certificate (S.S.C.) | Science",
+        period: "2006 - 2014"
+    }
+]
 
 export const socialLinks = {
   github: "https://github.com/rafimohammadhasib",

@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import { personalInfo, skills, socialLinks, experiences } from "@/lib/data";
+import { personalInfo, skills, socialLinks, experiences, education } from "@/lib/data";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Mail, Briefcase, Download, Github, Linkedin } from "lucide-react";
+import { Mail, Briefcase, Download, Github, Linkedin, GraduationCap } from "lucide-react";
 import GitHubProjects from "@/components/github-projects";
 
 export default function Home() {
@@ -23,6 +23,9 @@ export default function Home() {
             </Button>
             <Button variant="ghost" asChild>
               <a href="#experience">Experience</a>
+            </Button>
+            <Button variant="ghost" asChild>
+              <a href="#education">Education</a>
             </Button>
             <Button variant="ghost" asChild>
               <a href="#portfolio">Portfolio</a>
@@ -117,7 +120,35 @@ export default function Home() {
             </div>
         </section>
 
-        <section id="skills" className="py-12 md:py-20 bg-card border-y">
+        <section id="education" className="py-12 md:py-20 bg-card border-y">
+          <div className="container">
+            <div className="mx-auto max-w-4xl text-center">
+              <h2 className="font-headline text-3xl font-bold md:text-4xl">
+                Education
+              </h2>
+            </div>
+            <div className="mt-10 mx-auto max-w-4xl space-y-8">
+              {education.map((edu, index) => (
+                <div key={index} className="flex flex-col sm:flex-row gap-6">
+                    <div className="flex-shrink-0 sm:w-48 text-left sm:text-right">
+                        <h3 className="font-headline text-xl font-bold">{edu.institution}</h3>
+                        <p className="text-muted-foreground">{edu.period}</p>
+                    </div>
+                    <div className="flex-grow border-l-2 border-primary pl-6 flex items-center">
+                      <div className="flex items-center gap-4">
+                        <GraduationCap className="h-8 w-8 text-primary flex-shrink-0" />
+                        <div>
+                          <h4 className="font-semibold text-lg">{edu.degree}</h4>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="skills" className="py-12 md:py-20">
           <div className="container">
             <div className="mx-auto max-w-4xl text-center">
               <h2 className="font-headline text-3xl font-bold md:text-4xl">
@@ -141,7 +172,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="portfolio" className="py-12 md:py-20">
+        <section id="portfolio" className="py-12 md:py-20 bg-card border-y">
           <div className="container">
             <div className="mx-auto max-w-4xl text-center">
               <h2 className="font-headline text-3xl font-bold md:text-4xl">
@@ -156,7 +187,7 @@ export default function Home() {
         </section>
 
 
-        <section id="contact" className="py-12 md:py-20 bg-card border-y">
+        <section id="contact" className="py-12 md:py-20">
           <div className="container text-center">
             <h2 className="font-headline text-3xl font-bold md:text-4xl">
               Get In Touch
