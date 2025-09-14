@@ -106,7 +106,7 @@ export const education = [
         period: "09/2016 - 12/2021",
         projects: [
             "Thesis Project: Movie Recommendation System",
-            "Completed a comprehensive web project.",
+            "Web Project: Medicine Store Management System",
             "Research Paper: Social and Professional Issues in Computing"
         ]
     },
