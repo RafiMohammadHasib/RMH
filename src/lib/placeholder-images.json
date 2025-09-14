@@ -1,3 +1,28 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "p1",
+      "description": "A modern e-commerce website layout.",
+      "imageUrl": "https://picsum.photos/seed/p1/600/400",
+      "imageHint": "e-commerce site"
+    },
+    {
+      "id": "p2",
+      "description": "A sleek mobile banking application interface.",
+      "imageUrl": "https://picsum.photos/seed/p2/600/400",
+      "imageHint": "mobile design"
+    },
+    {
+      "id": "p3",
+      "description": "An insightful data analytics dashboard with various charts.",
+      "imageUrl": "https://picsum.photos/seed/p3/600/400",
+      "imageHint": "data dashboard"
+    },
+    {
+      "id": "p4",
+      "description": "A clean and organized project management tool interface.",
+      "imageUrl": "https://picsum.photos/seed/p4/600/400",
+      "imageHint": "web app"
+    }
+  ]
 }
