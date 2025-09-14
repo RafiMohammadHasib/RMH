@@ -142,24 +142,25 @@ export default function GitHubProjects() {
               </CardFooter>
             </Card>
           ))}
-          {hiddenRepos.length > 0 && (
-            <Card className="md:col-span-2 lg:col-span-3">
-                <CardHeader>
-                    <CardTitle>Hidden Repositories</CardTitle>
-                </CardHeader>
-                <CardContent className="flex flex-wrap gap-2">
-                    {repos.filter(repo => hiddenRepos.includes(repo.id)).map(repo => (
-                        <Badge key={repo.id} variant="secondary" className="flex items-center gap-2">
-                            <span>{repo.name}</span>
-                            <Button variant="ghost" size="icon" className="h-auto w-auto p-0" onClick={() => toggleRepoVisibility(repo.id)}>
-                                <EyeOff className="h-4 w-4" />
-                            </Button>
-                        </Badge>
-                    ))}
-                </CardContent>
-            </Card>
-          )}
         </div>
+      )}
+      {hiddenRepos.length > 0 && (
+        <Card className="mt-8">
+            <CardHeader>
+                <CardTitle>Hidden Repositories</CardTitle>
+                <CardDescription>These repositories are hidden from your main portfolio view.</CardDescription>
+            </CardHeader>
+            <CardContent className="flex flex-wrap gap-2">
+                {repos.filter(repo => hiddenRepos.includes(repo.id)).map(repo => (
+                    <Badge key={repo.id} variant="secondary" className="flex items-center gap-2 pr-1">
+                        <span>{repo.name}</span>
+                        <Button variant="ghost" size="icon" className="h-auto w-auto p-0.5" onClick={() => toggleRepoVisibility(repo.id)}>
+                            <EyeOff className="h-4 w-4" />
+                        </Button>
+                    </Badge>
+                ))}
+            </CardContent>
+        </Card>
       )}
     </div>
   );
