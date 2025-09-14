@@ -175,7 +175,7 @@ export default function Home() {
                       }`}
                     >
                       <ul className="list-disc list-inside text-muted-foreground space-y-2">
-                        {exp.responsibilities.slice(0, 2).map((item, i) => (
+                        {exp.responsibilities.map((item, i) => (
                           <li key={i}>{item}</li>
                         ))}
                       </ul>
