@@ -65,7 +65,10 @@ export const experiences = [
         period: "May 2023 - October 2023",
         title: "Sales and Marketing Executive (Software)",
         responsibilities: [
-            "Created and posted content on social media to promote company services."
+            "Created and posted content on social media to promote company services.",
+            "Tested mobile apps to make sure they worked well before launch",
+            "Attended meetings to learn about client needs and offer the right products",
+            "Built strong connections with clients to earn their trust and grow business."
         ]
     },
     {
