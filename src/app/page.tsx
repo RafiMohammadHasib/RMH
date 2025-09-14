@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { personalInfo, skills, socialLinks } from "@/lib/data";
+import { personalInfo, skills, socialLinks, experiences } from "@/lib/data";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Mail, Briefcase, Download, Github, Linkedin } from "lucide-react";
@@ -20,6 +20,9 @@ export default function Home() {
           <nav className="flex items-center gap-4">
             <Button variant="ghost" asChild>
               <a href="#about">About</a>
+            </Button>
+            <Button variant="ghost" asChild>
+              <a href="#experience">Experience</a>
             </Button>
             <Button variant="ghost" asChild>
               <a href="#portfolio">Portfolio</a>
@@ -52,7 +55,7 @@ export default function Home() {
               </Button>
               <Button asChild size="lg" variant="outline">
                 <a
-                  href="/resume.pdf"
+                  href="/Rafi_Mohammad_Hasib_Resume.pdf"
                   target="_blank"
                 >
                   <Download className="mr-2 h-5 w-5" />
@@ -63,7 +66,7 @@ export default function Home() {
           </div>
           <div className="flex justify-center items-center">
             <Image
-              src="https://images.unsplash.com/photo-1619946803204-a6a1b950e7b5?q=80&w=400"
+              src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=400"
               alt="Rafi Mohammad Hasib"
               width={400}
               height={400}
@@ -86,7 +89,35 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="skills" className="py-12 md:py-20">
+        <section id="experience" className="py-12 md:py-20">
+            <div className="container">
+              <div className="mx-auto max-w-4xl text-center">
+                <h2 className="font-headline text-3xl font-bold md:text-4xl">
+                  Professional Experience
+                </h2>
+              </div>
+              <div className="mt-10 mx-auto max-w-4xl space-y-8">
+                {experiences.map((exp, index) => (
+                  <div key={index} className="flex flex-col sm:flex-row gap-6">
+                      <div className="flex-shrink-0 sm:w-48 text-left sm:text-right">
+                          <h3 className="font-headline text-xl font-bold">{exp.company}</h3>
+                          <p className="text-muted-foreground">{exp.period}</p>
+                      </div>
+                      <div className="flex-grow border-l-2 border-primary pl-6">
+                          <h4 className="font-semibold text-lg">{exp.title}</h4>
+                          <ul className="mt-2 list-disc list-inside text-muted-foreground space-y-1">
+                              {exp.responsibilities.map((item, i) => (
+                                  <li key={i}>{item}</li>
+                              ))}
+                          </ul>
+                      </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+        </section>
+
+        <section id="skills" className="py-12 md:py-20 bg-card border-y">
           <div className="container">
             <div className="mx-auto max-w-4xl text-center">
               <h2 className="font-headline text-3xl font-bold md:text-4xl">
@@ -110,7 +141,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="portfolio" className="py-12 md:py-20  bg-card border-y">
+        <section id="portfolio" className="py-12 md:py-20">
           <div className="container">
             <div className="mx-auto max-w-4xl text-center">
               <h2 className="font-headline text-3xl font-bold md:text-4xl">
@@ -125,7 +156,7 @@ export default function Home() {
         </section>
 
 
-        <section id="contact" className="py-12 md:py-20">
+        <section id="contact" className="py-12 md:py-20 bg-card border-y">
           <div className="container text-center">
             <h2 className="font-headline text-3xl font-bold md:text-4xl">
               Get In Touch
@@ -148,7 +179,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="bg-card border-t">
+      <footer className="bg-background border-t">
         <div className="container flex flex-col items-center justify-between gap-4 py-10 md:h-24 md:flex-row md:py-0">
           <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
             Built by{" "}
