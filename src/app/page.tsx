@@ -217,24 +217,6 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="ai-suggester" className="py-12 md:py-20">
-          <div className="container">
-            <div className="mx-auto max-w-4xl text-center">
-              <div className="flex items-center justify-center gap-4 mb-4">
-                <Lightbulb className="h-8 w-8 text-primary" />
-                <h2 className="font-headline text-3xl font-bold md:text-4xl">
-                  Get AI Project Ideas
-                </h2>
-              </div>
-              <p className="mt-4 text-lg text-muted-foreground">
-                Not sure what to build next? Let our AI assistant suggest projects based on your unique skills and portfolio.
-              </p>
-            </div>
-            <ProjectSuggester portfolioDescription={portfolioDescription} />
-          </div>
-        </section>
-
-
         <section id="contact" className="py-12 md:py-20">
           <div className="container text-center">
             <h2 className="font-headline text-3xl font-bold md:text-4xl">
