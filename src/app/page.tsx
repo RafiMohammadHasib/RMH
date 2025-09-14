@@ -3,7 +3,7 @@ import Link from "next/link";
 import { personalInfo, skills, socialLinks, experiences, education } from "@/lib/data";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Mail, Briefcase, Download, Github, Linkedin, GraduationCap } from "lucide-react";
+import { Mail, Briefcase, Download, Github, Linkedin, GraduationCap, Circle } from "lucide-react";
 import GitHubProjects from "@/components/github-projects";
 
 export default function Home() {
@@ -134,13 +134,26 @@ export default function Home() {
                         <h3 className="font-headline text-xl font-bold">{edu.institution}</h3>
                         <p className="text-muted-foreground">{edu.period}</p>
                     </div>
-                    <div className="flex-grow border-l-2 border-primary pl-6 flex items-center">
+                    <div className="flex-grow border-l-2 border-primary pl-6">
                       <div className="flex items-center gap-4">
                         <GraduationCap className="h-8 w-8 text-primary flex-shrink-0" />
                         <div>
                           <h4 className="font-semibold text-lg">{edu.degree}</h4>
                         </div>
                       </div>
+                      {edu.projects && (
+                        <div className="mt-4">
+                          <h5 className="font-semibold text-md mb-2">Key Projects & Papers:</h5>
+                          <ul className="space-y-2">
+                            {edu.projects.map((project, i) => (
+                              <li key={i} className="flex items-start gap-2">
+                                <Circle className="h-2 w-2 mt-[7px] text-primary flex-shrink-0" />
+                                <span>{project}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
                     </div>
                 </div>
               ))}

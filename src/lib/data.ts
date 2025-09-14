@@ -103,7 +103,12 @@ export const education = [
     {
         institution: "East West University",
         degree: "Bachelor of Science in Computer Science and Engineering",
-        period: "09/2016 - 12/2021"
+        period: "09/2016 - 12/2021",
+        projects: [
+            "Thesis Project: Movie Recommendation System",
+            "Completed a comprehensive web project.",
+            "Authored a detailed research paper."
+        ]
     },
     {
         institution: "Dhaka Imperial College",
