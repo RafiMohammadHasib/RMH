@@ -26,6 +26,8 @@ export const portfolio = [
       "A full-featured e-commerce website with a custom CMS and payment gateway integration.",
     imageUrlId: "p1",
     tags: ["Next.js", "Stripe", "PostgreSQL"],
+    liveUrl: "#",
+    githubUrl: "#",
   },
   {
     id: "proj2",
@@ -34,6 +36,8 @@ export const portfolio = [
       "A secure and user-friendly mobile app for a new-age digital bank.",
     imageUrlId: "p2",
     tags: ["React Native", "Firebase", "UX Design"],
+    liveUrl: "#",
+    githubUrl: "#",
   },
   {
     id: "proj3",
@@ -42,6 +46,8 @@ export const portfolio = [
       "A real-time data visualization dashboard for tracking business KPIs.",
     imageUrlId: "p3",
     tags: ["React", "D3.js", "Python (Flask)"],
+    liveUrl: "#",
+    githubUrl: "#",
   },
   {
     id: "proj4",
@@ -50,5 +56,7 @@ export const portfolio = [
       "A collaborative tool to help teams manage tasks, deadlines, and resources efficiently.",
     imageUrlId: "p4",
     tags: ["Vue.js", "Node.js", "MongoDB"],
+    liveUrl: "#",
+    githubUrl: "#",
   },
 ];

@@ -11,8 +11,9 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Mail, Briefcase, Lightbulb } from "lucide-react";
+import { Mail, Briefcase, Lightbulb, Download, Github, Link as LinkIcon } from "lucide-react";
 import ProjectSuggester from "@/components/project-suggester";
+import { Input } from "@/components/ui/input";
 
 const getImage = (id: string) => PlaceHolderImages.find((img) => img.id === id);
 
@@ -34,9 +35,15 @@ export default function Home() {
               Portfolio Ace
             </span>
           </Link>
-          <nav>
+          <nav className="flex items-center gap-4">
             <Button variant="ghost" asChild>
-              <a href="#contact">Contact Me</a>
+              <a href="#about">About</a>
+            </Button>
+            <Button variant="ghost" asChild>
+              <a href="#portfolio">Portfolio</a>
+            </Button>
+            <Button variant="ghost" asChild>
+              <a href="#contact">Contact</a>
             </Button>
           </nav>
         </div>
@@ -45,20 +52,59 @@ export default function Home() {
       <main className="flex-1">
         <section
           id="hero"
-          className="container grid items-center gap-6 pb-8 pt-6 md:py-24"
+          className="container grid grid-cols-1 md:grid-cols-2 items-center gap-10 py-12 md:py-24"
         >
-          <div className="mx-auto flex max-w-4xl flex-col items-center gap-4 text-center">
+          <div className="flex flex-col items-start gap-4 text-left">
             <h1 className="font-headline text-4xl font-bold leading-tight tracking-tighter md:text-6xl lg:leading-[1.1]">
               {personalInfo.name}
             </h1>
-            <p className="text-xl text-muted-foreground">{personalInfo.title}</p>
-            <p className="max-w-2xl text-lg text-muted-foreground/80">
-              {personalInfo.bio}
-            </p>
+            <p className="text-2xl text-primary font-semibold">{personalInfo.title}</p>
+            <div className="flex gap-4 mt-4">
+              <Button asChild size="lg">
+                <a
+                  href={`mailto:${personalInfo.email}`}
+                >
+                  <Mail className="mr-2 h-5 w-5" />
+                  Contact Me
+                </a>
+              </Button>
+              <Button asChild size="lg" variant="outline">
+                <a
+                  href="/resume.pdf"
+                  target="_blank"
+                >
+                  <Download className="mr-2 h-5 w-5" />
+                  Resume
+                </a>
+              </Button>
+            </div>
+          </div>
+          <div className="flex justify-center items-center">
+            <Image
+              src="https://picsum.photos/seed/profile/400/400"
+              alt="Rafi Mohammad Hasib"
+              width={400}
+              height={400}
+              className="rounded-full object-cover border-4 border-primary shadow-lg"
+              data-ai-hint="professional headshot"
+            />
           </div>
         </section>
 
-        <section id="skills" className="py-12 md:py-20 bg-card border-y">
+        <section id="about" className="py-12 md:py-20 bg-card border-y">
+          <div className="container">
+            <div className="mx-auto max-w-4xl text-center">
+              <h2 className="font-headline text-3xl font-bold md:text-4xl">
+                About Me
+              </h2>
+              <p className="mt-4 text-lg text-muted-foreground">
+                {personalInfo.bio}
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="skills" className="py-12 md:py-20">
           <div className="container">
             <div className="mx-auto max-w-4xl text-center">
               <h2 className="font-headline text-3xl font-bold md:text-4xl">
@@ -82,7 +128,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="portfolio" className="py-12 md:py-20">
+        <section id="portfolio" className="py-12 md:py-20  bg-card border-y">
           <div className="container">
             <div className="mx-auto max-w-4xl text-center">
               <h2 className="font-headline text-3xl font-bold md:text-4xl">
@@ -99,7 +145,7 @@ export default function Home() {
                 return (
                   <Card
                     key={project.id}
-                    className="overflow-hidden transition-shadow hover:shadow-lg"
+                    className="overflow-hidden transition-shadow hover:shadow-lg flex flex-col"
                   >
                     {image && (
                       <div className="aspect-video relative">
@@ -117,14 +163,26 @@ export default function Home() {
                         {project.title}
                       </CardTitle>
                     </CardHeader>
-                    <CardContent>
-                      <CardDescription>{project.description}</CardDescription>
+                    <CardContent className="flex-grow flex flex-col">
+                      <CardDescription className="flex-grow">{project.description}</CardDescription>
                       <div className="mt-4 flex flex-wrap gap-2">
                         {project.tags.map((tag) => (
                           <Badge key={tag} variant="outline">
                             {tag}
                           </Badge>
                         ))}
+                      </div>
+                      <div className="mt-4 flex gap-4">
+                        <Button variant="outline" asChild>
+                          <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                            <LinkIcon className="mr-2" /> Live Demo
+                          </a>
+                        </Button>
+                        <Button variant="ghost" asChild>
+                           <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                            <Github className="mr-2" /> GitHub
+                          </a>
+                        </Button>
                       </div>
                     </CardContent>
                   </Card>
@@ -133,6 +191,33 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <section id="github-connect" className="py-12 md:py-20">
+            <div className="container">
+                <div className="mx-auto max-w-4xl text-center">
+                    <h2 className="font-headline text-3xl font-bold md:text-4xl">Connect Your GitHub</h2>
+                    <p className="mt-4 text-lg text-muted-foreground">
+                        Connect a GitHub repository to get started.
+                    </p>
+                </div>
+                <div className="mt-8 max-w-2xl mx-auto">
+                    <Card>
+                        <CardContent className="pt-6">
+                            <div className="flex flex-col sm:flex-row gap-4">
+                                <Input 
+                                    placeholder="Enter GitHub repository URL"
+                                    className="flex-grow"
+                                />
+                                <Button>
+                                    <Github className="mr-2" /> Connect
+                                </Button>
+                            </div>
+                        </CardContent>
+                    </Card>
+                </div>
+            </div>
+        </section>
+
 
         <section id="ai-suggester" className="py-12 md:py-20 bg-card border-y">
           <div className="container">
