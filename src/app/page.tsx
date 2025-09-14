@@ -1,20 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import { personalInfo, skills, portfolio } from "@/lib/data";
+import { personalInfo, skills, portfolio, socialLinks } from "@/lib/data";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Mail, Briefcase, Download, Github, Link as LinkIcon } from "lucide-react";
-import { Input } from "@/components/ui/input";
-
-const getImage = (id: string) => PlaceHolderImages.find((img) => img.id === id);
+import { Mail, Briefcase, Download, Github, Linkedin } from "lucide-react";
+import GitHubProjects from "@/components/github-projects";
 
 export default function Home() {
   return (
@@ -127,88 +118,13 @@ export default function Home() {
                 My Work
               </h2>
               <p className="mt-4 text-lg text-muted-foreground">
-                A selection of projects that showcase my passion for software
-                engineering and business development.
+                A selection of my projects from GitHub. Connect your account to see your own!
               </p>
             </div>
-            <div className="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-2">
-              {portfolio.map((project) => {
-                const image = getImage(project.imageUrlId);
-                return (
-                  <Card
-                    key={project.id}
-                    className="overflow-hidden transition-shadow hover:shadow-lg flex flex-col"
-                  >
-                    {image && (
-                      <div className="aspect-video relative">
-                        <Image
-                          src={image.imageUrl}
-                          alt={project.title}
-                          fill
-                          className="object-cover"
-                          data-ai-hint={image.imageHint}
-                        />
-                      </div>
-                    )}
-                    <CardHeader>
-                      <CardTitle className="font-headline text-2xl">
-                        {project.title}
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent className="flex-grow flex flex-col">
-                      <CardDescription className="flex-grow">{project.description}</CardDescription>
-                      <div className="mt-4 flex flex-wrap gap-2">
-                        {project.tags.map((tag) => (
-                          <Badge key={tag} variant="outline">
-                            {tag}
-                          </Badge>
-                        ))}
-                      </div>
-                      <div className="mt-4 flex gap-4">
-                        <Button variant="outline" asChild>
-                          <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                            <LinkIcon className="mr-2" /> Live Demo
-                          </a>
-                        </Button>
-                        <Button variant="ghost" asChild>
-                           <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                            <Github className="mr-2" /> GitHub
-                          </a>
-                        </Button>
-                      </div>
-                    </CardContent>
-                  </Card>
-                );
-              })}
-            </div>
+            <GitHubProjects />
           </div>
         </section>
 
-        <section id="github-connect" className="py-12 md:py-20">
-            <div className="container">
-                <div className="mx-auto max-w-4xl text-center">
-                    <h2 className="font-headline text-3xl font-bold md:text-4xl">Connect Your GitHub</h2>
-                    <p className="mt-4 text-lg text-muted-foreground">
-                        Connect a GitHub repository to get started.
-                    </p>
-                </div>
-                <div className="mt-8 max-w-2xl mx-auto">
-                    <Card>
-                        <CardContent className="pt-6">
-                            <div className="flex flex-col sm:flex-row gap-4">
-                                <Input 
-                                    placeholder="Enter GitHub repository URL"
-                                    className="flex-grow"
-                                />
-                                <Button>
-                                    <Github className="mr-2" /> Connect
-                                </Button>
-                            </div>
-                        </CardContent>
-                    </Card>
-                </div>
-            </div>
-        </section>
 
         <section id="contact" className="py-12 md:py-20">
           <div className="container text-center">
@@ -247,6 +163,14 @@ export default function Home() {
             </a>
             . Powered by AI.
           </p>
+          <div className="flex items-center gap-4">
+              <a href={socialLinks.github} target="_blank" rel="noopener noreferrer">
+                <Github className="h-6 w-6 text-muted-foreground hover:text-primary transition-colors" />
+              </a>
+              <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer">
+                <Linkedin className="h-6 w-6 text-muted-foreground hover:text-primary transition-colors" />
+              </a>
+            </div>
         </div>
       </footer>
     </div>

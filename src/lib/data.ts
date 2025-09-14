@@ -60,3 +60,9 @@ export const portfolio = [
     githubUrl: "#",
   },
 ];
+
+
+export const socialLinks = {
+  github: "https://github.com/RafiMohammadHasib",
+  linkedin: "https://linkedin.com/in/rafimohammadhasib"
+}
