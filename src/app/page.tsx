@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { personalInfo, skills, portfolio, socialLinks } from "@/lib/data";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
+import { personalInfo, skills, socialLinks } from "@/lib/data";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Mail, Briefcase, Download, Github, Linkedin } from "lucide-react";
@@ -64,7 +63,7 @@ export default function Home() {
           </div>
           <div className="flex justify-center items-center">
             <Image
-              src="https://picsum.photos/seed/profile/400/400"
+              src="https://images.unsplash.com/photo-1619946803204-a6a1b950e7b5?q=80&w=400"
               alt="Rafi Mohammad Hasib"
               width={400}
               height={400}
