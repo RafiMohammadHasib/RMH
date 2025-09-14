@@ -34,6 +34,20 @@ export const skills = [
 
 export const experiences = [
     {
+        company: "Euro IT",
+        period: "May 2025 - Present",
+        title: "Business Developer and Assistant Software Engineer",
+        responsibilities: [
+            "Talk to clients for business needs, offer services, and arrange meetings to close deals.",
+            "Visit clients to build and maintain strong relationships.",
+            "Track client records and sales progress using CRM software.",
+            "Handle follow-up communications to ensure client satisfaction.",
+            "Create content plans and develop websites for clients.",
+            "Conduct manual testing on existing software and websites.",
+            "Develop and execute strategic business plans."
+        ]
+    },
+    {
         company: "Lnkits Technology",
         period: "September 2024 - April 2025",
         title: "Business Development Executive",
