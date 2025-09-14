@@ -9,7 +9,7 @@ import {
   SuggestSimilarProjectsOutput,
 } from "@/ai/flows/suggest-similar-projects";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import {
   Form,
@@ -19,7 +19,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Loader2 } from "lucide-react";
+import { Loader2, Wand2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
@@ -74,8 +74,14 @@ export default function ProjectSuggester({
 
   return (
     <div className="mt-10 mx-auto max-w-4xl">
-      <Card>
-        <CardContent className="pt-6">
+      <Card className="bg-card">
+        <CardHeader>
+          <CardTitle>Portfolio Summary for AI</CardTitle>
+          <CardDescription>
+            This summary is automatically generated from your profile. Feel free to edit it before asking for suggestions.
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
               <FormField
@@ -83,9 +89,6 @@ export default function ProjectSuggester({
                 name="portfolioDescription"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-lg font-semibold">
-                      My Portfolio Summary
-                    </FormLabel>
                     <FormControl>
                       <Textarea
                         placeholder="Describe your projects, technologies used, and your role..."
@@ -97,14 +100,17 @@ export default function ProjectSuggester({
                   </FormItem>
                 )}
               />
-              <Button type="submit" disabled={isLoading} className="w-full">
+              <Button type="submit" disabled={isLoading} className="w-full" size="lg">
                 {isLoading ? (
                   <>
                     <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                     Generating Ideas...
                   </>
                 ) : (
-                  "Suggest Projects"
+                  <>
+                    <Wand2 className="mr-2 h-4 w-4" />
+                    Suggest Projects
+                  </>
                 )}
               </Button>
             </form>
@@ -118,7 +124,7 @@ export default function ProjectSuggester({
             <AlertTitle className="font-headline text-xl">
               AI-Powered Reasoning
             </AlertTitle>
-            <AlertDescription className="mt-2">
+            <AlertDescription className="mt-2 text-muted-foreground">
               {suggestions.reasoning}
             </AlertDescription>
           </Alert>
@@ -132,7 +138,7 @@ export default function ProjectSuggester({
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p>{project}</p>
+                  <p className="text-muted-foreground">{project}</p>
                 </CardContent>
               </Card>
             ))}

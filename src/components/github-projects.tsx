@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import {
   Card,
   CardContent,
@@ -12,8 +13,9 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
-import { Github, Star, GitFork, EyeOff, Eye, Loader2 } from "lucide-react";
+import { Github, Star, GitFork, EyeOff, Eye, Loader2, Link } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 interface Repo {
   id: number;
@@ -87,7 +89,7 @@ export default function GitHubProjects() {
 
   return (
     <div className="mt-10 max-w-6xl mx-auto">
-       <Card className="mb-8">
+       <Card className="mb-8 bg-background/50">
         <CardHeader>
           <CardTitle className="font-headline">Connect to GitHub</CardTitle>
           <CardDescription>Enter a GitHub username to see their public repositories.</CardDescription>
@@ -99,10 +101,10 @@ export default function GitHubProjects() {
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && handleConnect()}
-              className="flex-grow"
+              className="flex-grow bg-card"
             />
             <Button onClick={handleConnect} disabled={isLoading}>
-              {isLoading && username ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Github className="mr-2" />}
+              {isLoading && username ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Github className="mr-2 h-4 w-4" />}
               Connect
             </Button>
           </div>
@@ -114,34 +116,47 @@ export default function GitHubProjects() {
       
       {!isLoading && !error && (
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {visibleRepos.map((repo) => (
-            <Card key={repo.id} className="flex flex-col">
-              <CardHeader>
-                <CardTitle className="font-headline text-xl flex justify-between items-start">
-                  <a href={repo.html_url} target="_blank" rel="noopener noreferrer" className="hover:underline">
-                    {repo.name}
-                  </a>
-                  <Button variant="ghost" size="icon" onClick={() => toggleRepoVisibility(repo.id)}>
-                    <Eye className="h-5 w-5" />
-                  </Button>
-                </CardTitle>
-                <div className="flex items-center gap-4 text-xs text-muted-foreground pt-1">
-                  <div className="flex items-center gap-1">
-                    <Star className="h-3 w-3" /> {repo.stargazers_count}
+          {visibleRepos.map((repo, index) => {
+            const placeholder = PlaceHolderImages[index % PlaceHolderImages.length];
+            return (
+              <a href={repo.html_url} target="_blank" rel="noopener noreferrer" className="group block" key={repo.id}>
+                <Card className="flex flex-col h-full overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-primary/50 hover:-translate-y-1">
+                  <div className="relative h-48 w-full">
+                    <Image
+                      src={placeholder.imageUrl}
+                      alt={repo.name}
+                      fill
+                      className="object-cover"
+                      data-ai-hint={placeholder.imageHint}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                    <div className="absolute bottom-0 left-0 p-4">
+                      <CardTitle className="font-headline text-xl text-primary-foreground drop-shadow-md">
+                        {repo.name}
+                      </CardTitle>
+                    </div>
+                    <Button variant="ghost" size="icon" className="absolute top-2 right-2 text-primary-foreground/70 hover:text-primary-foreground hover:bg-white/20" onClick={(e) => {e.preventDefault(); toggleRepoVisibility(repo.id);}}>
+                      <Eye className="h-5 w-5" />
+                    </Button>
                   </div>
-                  <div className="flex items-center gap-1">
-                    <GitFork className="h-3 w-3" /> {repo.forks_count}
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent className="flex-grow">
-                <p className="text-sm text-muted-foreground">{repo.description || "No description available."}</p>
-              </CardContent>
-              <CardFooter>
-                 {repo.language && <Badge variant="outline">{repo.language}</Badge>}
-              </CardFooter>
-            </Card>
-          ))}
+                  <CardContent className="flex-grow p-4">
+                    <p className="text-sm text-muted-foreground h-12 overflow-hidden">{repo.description || "No description available."}</p>
+                  </CardContent>
+                  <CardFooter className="p-4 flex justify-between items-center">
+                    {repo.language && <Badge variant="secondary">{repo.language}</Badge>}
+                    <div className="flex items-center gap-4 text-xs text-muted-foreground">
+                      <div className="flex items-center gap-1">
+                        <Star className="h-4 w-4" /> {repo.stargazers_count}
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <GitFork className="h-4 w-4" /> {repo.forks_count}
+                      </div>
+                    </div>
+                  </CardFooter>
+                </Card>
+              </a>
+            );
+          })}
         </div>
       )}
       {hiddenRepos.length > 0 && (

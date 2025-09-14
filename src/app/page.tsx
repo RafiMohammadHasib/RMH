@@ -3,10 +3,27 @@ import Link from "next/link";
 import { personalInfo, skills, socialLinks, experiences, education } from "@/lib/data";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Mail, Briefcase, Download, Github, Linkedin, GraduationCap, Circle } from "lucide-react";
+import { Mail, Briefcase, Download, Github, Linkedin, GraduationCap, Circle, Lightbulb } from "lucide-react";
 import GitHubProjects from "@/components/github-projects";
+import ProjectSuggester from "@/components/project-suggester";
 
 export default function Home() {
+  const portfolioDescription = `
+  Professional Experience:
+  ${experiences.map(exp => `
+  - ${exp.title} at ${exp.company}: ${exp.responsibilities.join(', ')}
+  `).join('')}
+
+  Education:
+  ${education.map(edu => `
+  - ${edu.degree} from ${edu.institution}: ${edu.projects ? edu.projects.join(', ') : ''}
+  `).join('')}
+
+  Skills:
+  ${skills.join(', ')}
+  `;
+
+
   return (
     <div className="flex flex-col min-h-dvh bg-background text-foreground font-body">
       <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -197,6 +214,23 @@ export default function Home() {
               </p>
             </div>
             <GitHubProjects />
+          </div>
+        </section>
+
+        <section id="ai-suggester" className="py-12 md:py-20">
+          <div className="container">
+            <div className="mx-auto max-w-4xl text-center">
+              <div className="flex items-center justify-center gap-4 mb-4">
+                <Lightbulb className="h-8 w-8 text-primary" />
+                <h2 className="font-headline text-3xl font-bold md:text-4xl">
+                  Get AI Project Ideas
+                </h2>
+              </div>
+              <p className="mt-4 text-lg text-muted-foreground">
+                Not sure what to build next? Let our AI assistant suggest projects based on your unique skills and portfolio.
+              </p>
+            </div>
+            <ProjectSuggester portfolioDescription={portfolioDescription} />
           </div>
         </section>
 
