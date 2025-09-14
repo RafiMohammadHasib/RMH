@@ -58,8 +58,9 @@ export default function Home() {
               </Button>
               <Button asChild size="lg" variant="outline">
                 <a
-                  href="/Rafi_Mohammad_Hasib_Resume.pdf"
+                  href="https://drive.google.com/file/d/12bEJeHuBAM1P0kcg8TmGnGBx6o4uoyH-/view?usp=drive_link"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <Download className="mr-2 h-5 w-5" />
                   Resume
