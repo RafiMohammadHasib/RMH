@@ -3,7 +3,7 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
-  title: 'Portfolio Ace',
+  title: 'Rafi Mohammad Hasib',
   description: 'A portfolio for Rafi Mohammad Hasib, Business Developer and Software Engineer',
 };
 

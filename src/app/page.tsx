@@ -11,20 +11,12 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Mail, Briefcase, Lightbulb, Download, Github, Link as LinkIcon } from "lucide-react";
-import ProjectSuggester from "@/components/project-suggester";
+import { Mail, Briefcase, Download, Github, Link as LinkIcon } from "lucide-react";
 import { Input } from "@/components/ui/input";
 
 const getImage = (id: string) => PlaceHolderImages.find((img) => img.id === id);
 
 export default function Home() {
-  const portfolioDescription = portfolio
-    .map(
-      (p) =>
-        `- ${p.title}: ${p.description} (Technologies: ${p.tags.join(", ")})`
-    )
-    .join("\n");
-
   return (
     <div className="flex flex-col min-h-dvh bg-background text-foreground font-body">
       <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -32,7 +24,7 @@ export default function Home() {
           <Link href="/" className="flex items-center gap-2">
             <Briefcase className="h-6 w-6 text-primary" />
             <span className="font-headline text-xl font-bold">
-              Portfolio Ace
+              Rafi Mohammad Hasib
             </span>
           </Link>
           <nav className="flex items-center gap-4">
@@ -216,25 +208,6 @@ export default function Home() {
                     </Card>
                 </div>
             </div>
-        </section>
-
-
-        <section id="ai-suggester" className="py-12 md:py-20 bg-card border-y">
-          <div className="container">
-            <div className="mx-auto max-w-4xl text-center">
-              <div className="flex items-center justify-center gap-2">
-                <Lightbulb className="h-8 w-8 text-primary" />
-                <h2 className="font-headline text-3xl font-bold md:text-4xl">
-                  Need Inspiration?
-                </h2>
-              </div>
-              <p className="mt-4 text-lg text-muted-foreground">
-                Let our AI analyze my portfolio and suggest new project ideas to
-                expand my skills.
-              </p>
-            </div>
-            <ProjectSuggester portfolioDescription={portfolioDescription} />
-          </div>
         </section>
 
         <section id="contact" className="py-12 md:py-20">
