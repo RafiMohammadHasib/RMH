@@ -107,7 +107,7 @@ export const education = [
         projects: [
             "Thesis Project: Movie Recommendation System",
             "Completed a comprehensive web project.",
-            "Authored a detailed research paper."
+            "Research Paper: Social and Professional Issues in Computing"
         ]
     },
     {
