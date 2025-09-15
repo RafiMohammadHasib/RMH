@@ -64,21 +64,24 @@ export default function Home() {
       <main className="flex-1">
         <section
           id="hero"
-          className="container flex flex-col items-center justify-center gap-12 py-24 text-center md:py-32"
+          className="container grid md:grid-cols-2 gap-10 items-center py-24 md:py-32"
         >
-           <ScrollAnimation>
-            <div className="relative w-32 h-32 md:w-48 md:h-48">
+          <ScrollAnimation className="flex justify-center md:order-2">
+            <div className="relative group">
+              <div className="absolute -inset-1 bg-gradient-to-r from-primary/50 to-primary rounded-full blur-xl opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
               <Image
-                src="https://i.imgur.com/3aGfrx4.jpg"
+                src="/full_body.jpeg"
                 alt="Rafi Mohammad Hasib"
-                fill
-                className="rounded-full object-cover border-4 border-background shadow-lg"
-                data-ai-hint="professional headshot"
+                width={300}
+                height={300}
+                className="relative rounded-full object-cover border-4 border-background shadow-lg w-64 h-64 md:w-80 md:h-80"
+                priority
+                data-ai-hint="professional full-body"
               />
             </div>
-           </ScrollAnimation>
-           <ScrollAnimation>
-            <div className="flex flex-col items-center gap-4">
+          </ScrollAnimation>
+          <ScrollAnimation className="md:order-1 text-center md:text-left">
+            <div className="flex flex-col items-center md:items-start gap-4">
               <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
                 Hello, I'm {personalInfo.name.split(' ')[0]}
               </h1>
@@ -94,7 +97,7 @@ export default function Home() {
                 </Button>
                 <Button asChild size="lg" variant="secondary">
                   <a
-                    href="https://drive.google.com/file/d/12bEJeHuBAM1P0kcg8TmGnGBx6o4uoyH-/view?usp=drive_link"
+                    href="https://drive.google.com/file/d/1XmeZuDogdmDbcOV96qiaQWtt79HA-FxP/view?usp=drive_link"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -155,7 +158,7 @@ export default function Home() {
                 {experiences.map((exp, index) => (
                   <div
                     key={index}
-                    className="relative flex items-center justify-between w-full mb-12"
+                    className="relative flex items-start justify-between w-full mb-12 group"
                   >
                     <div
                       className={`w-5/12 ${
@@ -168,14 +171,14 @@ export default function Home() {
                       <h3 className="text-xl font-bold mt-1">{exp.title}</h3>
                       <p className="text-md text-primary">{exp.company}</p>
                     </div>
-                    <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full z-10 border-4 border-background"></div>
+                    <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full z-10 border-4 border-background transition-transform duration-300 group-hover:scale-125"></div>
                     <div
                       className={`w-5/12 ${
                         index % 2 === 0 ? 'pl-8' : 'pr-8'
                       }`}
                     >
                       <ul className="list-disc list-inside text-muted-foreground space-y-2">
-                        {exp.responsibilities.map((item, i) => (
+                         {exp.responsibilities.map((item, i) => (
                           <li key={i}>{item}</li>
                         ))}
                       </ul>
