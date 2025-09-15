@@ -70,7 +70,7 @@ export default function Home() {
             <div className="relative group">
               <div className="absolute -inset-1 bg-gradient-to-r from-primary/50 to-primary rounded-full blur-xl opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
               <Image
-                src="/full_body.jpeg"
+                src="/83f0d932-ed21-4727-8dd0-4de8c2af6785.jpeg"
                 alt="Rafi Mohammad Hasib"
                 width={300}
                 height={300}
