@@ -23,6 +23,18 @@ import {
 import GitHubProjects from '@/components/github-projects';
 import { ScrollAnimation } from '@/components/scroll-animation';
 
+const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    {...props}
+  >
+    <path d="M16.6 14.2c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.7-.8.9-.1.1-.3.1-.5.1-.2 0-.9-.3-1.6-1-.6-.5-1-1.1-1.2-1.3-.1-.2 0-.3.1-.4.1-.1.2-.2.3-.3.1-.1.2-.2.2-.4.1-.1 0-.3-.1-.4-.1-.1-.6-1.4-.8-1.9s-.4-.5-.6-.5h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2 1 2.4c.1.1 1.5 2.3 3.6 3.2.5.2.8.3 1.1.4.5.1 1 .1 1.3.1.4-.1.8-.2 1.5-.7.2-.2.4-.4.6-.6.2-.3.3-.5.4-.7.1-.2 0-.4-.1-.5l-.1-.1zM12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18.2c-4.5 0-8.2-3.7-8.2-8.2S7.5 3.8 12 3.8s8.2 3.7 8.2 8.2-3.7 8.2-8.2 8.2z" />
+  </svg>
+);
+
+
 export default function Home() {
   return (
     <div className="flex min-h-dvh flex-col bg-background text-foreground font-sans">
@@ -293,6 +305,13 @@ export default function Home() {
               rel="noopener noreferrer"
             >
               <Linkedin className="h-6 w-6 hover:opacity-80 transition-opacity" />
+            </a>
+            <a
+              href={socialLinks.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <WhatsAppIcon className="h-6 w-6 hover:opacity-80 transition-opacity" />
             </a>
           </div>
         </div>

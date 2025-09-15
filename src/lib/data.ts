@@ -124,5 +124,6 @@ export const education = [
 
 export const socialLinks = {
   github: "https://github.com/rafimohammadhasib",
-  linkedin: "https://linkedin.com/in/rafimohammadhasib"
+  linkedin: "https://linkedin.com/in/rafimohammadhasib",
+  whatsapp: "https://wa.me/8801521112363"
 }
