@@ -19,9 +19,17 @@ import {
   GraduationCap,
   Briefcase,
   User,
+  Menu,
 } from 'lucide-react';
 import GitHubProjects from '@/components/github-projects';
 import { ScrollAnimation } from '@/components/scroll-animation';
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetClose,
+} from '@/components/ui/sheet';
+
 
 const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
@@ -36,6 +44,13 @@ const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
 
 
 export default function Home() {
+  const navLinks = [
+    { href: '#about', label: 'About' },
+    { href: '#experience', label: 'Experience' },
+    { href: '#education', label: 'Education' },
+    { href: '#portfolio', label: 'Portfolio' },
+  ];
+  
   return (
     <div className="flex min-h-dvh flex-col bg-background text-foreground font-sans">
       <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -44,32 +59,50 @@ export default function Home() {
             <Code className="h-6 w-6 text-primary" />
             <span className="text-xl font-bold">{personalInfo.name}</span>
           </Link>
+
           <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
-            <a href="#about" className="text-foreground/60 hover:text-foreground">
-              About
-            </a>
-            <a
-              href="#experience"
-              className="text-foreground/60 hover:text-foreground"
-            >
-              Experience
-            </a>
-            <a
-              href="#education"
-              className="text-foreground/60 hover:text-foreground"
-            >
-              Education
-            </a>
-            <a
-              href="#portfolio"
-              className="text-foreground/60 hover:text-foreground"
-            >
-              Portfolio
-            </a>
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-foreground/60 hover:text-foreground"
+              >
+                {link.label}
+              </a>
+            ))}
             <Button asChild>
               <a href="#contact">Contact</a>
             </Button>
           </nav>
+          
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="outline" size="icon" className="md:hidden">
+                <Menu className="h-5 w-5" />
+                <span className="sr-only">Toggle navigation menu</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right">
+              <div className="grid gap-4 py-6">
+                {navLinks.map((link) => (
+                  <SheetClose asChild key={link.href}>
+                    <a
+                      href={link.href}
+                      className="text-lg font-medium text-foreground hover:text-primary"
+                    >
+                      {link.label}
+                    </a>
+                  </SheetClose>
+                ))}
+                <SheetClose asChild>
+                  <Button asChild>
+                    <a href="#contact">Contact</a>
+                  </Button>
+                </SheetClose>
+              </div>
+            </SheetContent>
+          </Sheet>
+
         </div>
       </header>
 
@@ -82,7 +115,7 @@ export default function Home() {
             <div className="relative group">
               <div className="absolute -inset-1 bg-gradient-to-r from-primary/50 to-primary rounded-full blur-xl opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
               <Image
-                src="/1.jpeg"
+                src="/83f0d932-ed21-4727-8dd0-4de8c2af6785.jpeg"
                 alt="Rafi Mohammad Hasib"
                 width={300}
                 height={300}
@@ -170,31 +203,26 @@ export default function Home() {
                 {experiences.map((exp, index) => (
                   <div
                     key={index}
-                    className="relative flex items-start justify-between w-full mb-12 group"
+                    className={`relative flex w-full mb-12 group ${
+                      index % 2 === 0 ? 'flex-row-reverse' : ''
+                    }`}
                   >
-                    <div
-                      className={`w-5/12 ${
-                        index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 text-left'
-                      }`}
-                    >
-                      <p className="text-sm text-muted-foreground">
-                        {exp.period}
-                      </p>
-                      <h3 className="text-xl font-bold mt-1">{exp.title}</h3>
-                      <p className="text-md text-primary">{exp.company}</p>
+                    <div className="w-5/12"></div>
+                    <div className="w-5/12">
+                      <div className={`text-right ${index % 2 === 0 ? 'md:text-left' : 'md:text-right'}`}>
+                        <p className="text-sm text-muted-foreground">
+                          {exp.period}
+                        </p>
+                        <h3 className="text-xl font-bold mt-1">{exp.title}</h3>
+                        <p className="text-md text-primary">{exp.company}</p>
+                        <ul className="mt-4 list-disc list-inside text-muted-foreground space-y-2 text-left">
+                          {exp.responsibilities.map((item, i) => (
+                            <li key={i}>{item}</li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
-                    <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full z-10 border-4 border-background transition-transform duration-300 group-hover:scale-125"></div>
-                    <div
-                      className={`w-5/12 ${
-                        index % 2 === 0 ? 'pl-8' : 'pr-8'
-                      }`}
-                    >
-                      <ul className="list-disc list-inside text-muted-foreground space-y-2">
-                         {exp.responsibilities.map((item, i) => (
-                          <li key={i}>{item}</li>
-                        ))}
-                      </ul>
-                    </div>
+                     <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full z-10 border-4 border-background transition-transform duration-300 group-hover:scale-125"></div>
                   </div>
                 ))}
               </div>
