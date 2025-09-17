@@ -6,6 +6,7 @@ import {
   socialLinks,
   experiences,
   education,
+  hobbies,
 } from '@/lib/data';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -20,6 +21,7 @@ import {
   Briefcase,
   User,
   Menu,
+  Heart,
 } from 'lucide-react';
 import GitHubProjects from '@/components/github-projects';
 import { ScrollAnimation } from '@/components/scroll-animation';
@@ -48,6 +50,7 @@ export default function Home() {
     { href: '#about', label: 'About' },
     { href: '#experience', label: 'Experience' },
     { href: '#education', label: 'Education' },
+    { href: '#hobbies', label: 'Hobbies' },
     { href: '#portfolio', label: 'Portfolio' },
   ];
   
@@ -202,7 +205,7 @@ export default function Home() {
                 <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 bg-border md:transform md:-translate-x-1/2"></div>
                 {experiences.map((exp, index) => (
                    <div key={index} className="relative md:flex items-start w-full mb-12 group">
-                     <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:pr-8 md:text-right' : 'md:pl-8 md:order-2'}`}>
+                     <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8 md:order-2'}`}>
                        <div className={`${index % 2 === 0 ? 'text-left md:text-right' : 'text-left'}`}>
                          <p className="text-sm text-muted-foreground">{exp.period}</p>
                          <h3 className="text-xl font-bold mt-1">{exp.title}</h3>
@@ -214,7 +217,7 @@ export default function Home() {
                          </ul>
                        </div>
                      </div>
-                     <div className={`hidden md:block w-1/2 ${index % 2 === 0 ? 'md:pl-8' : 'md:pr-8 md:order-1'}`}></div>
+                     <div className={`hidden md:block w-1/2 ${index % 2 !== 0 ? 'md:pr-8 md:order-1' : 'md:pl-8'}`}></div>
                      <div className="absolute left-0 top-1 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-primary rounded-full z-10 border-4 border-background transition-transform duration-300 group-hover:scale-125"></div>
                    </div>
                  ))}
@@ -264,7 +267,35 @@ export default function Home() {
           </ScrollAnimation>
         </section>
 
-        <section id="portfolio" className="py-16 md:py-24">
+        <section id="hobbies" className="py-16 md:py-24">
+          <ScrollAnimation>
+            <div className="container">
+              <div className="mx-auto max-w-4xl text-center mb-12">
+                <div className="flex items-center justify-center gap-4">
+                  <Heart className="h-8 w-8 text-primary" />
+                  <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
+                    Interests & Hobbies
+                  </h2>
+                </div>
+                <p className="mt-4 text-lg text-muted-foreground">
+                  A few of the things I enjoy doing in my free time.
+                </p>
+              </div>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 max-w-6xl mx-auto">
+                {hobbies.map((hobby, index) => (
+                  <div key={index} className="flex flex-col items-center gap-4 text-center">
+                    <div className="w-20 h-20 rounded-full bg-card border flex items-center justify-center text-primary">
+                      {hobby.icon}
+                    </div>
+                    <p className="font-semibold text-foreground">{hobby.name}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </ScrollAnimation>
+        </section>
+
+        <section id="portfolio" className="py-16 md:py-24 bg-card border-y">
            <ScrollAnimation>
             <div className="container">
               <div className="mx-auto max-w-4xl text-center mb-12">
@@ -282,7 +313,7 @@ export default function Home() {
 
         <section
           id="contact"
-          className="py-16 md:py-24 text-center bg-card border-t"
+          className="py-16 md:py-24 text-center border-t"
         >
            <ScrollAnimation>
             <div className="container">

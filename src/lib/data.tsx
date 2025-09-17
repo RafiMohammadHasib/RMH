@@ -1,5 +1,4 @@
-
-import { Compass, Gamepad2, Tv, Plane } from 'lucide-react';
+import { Compass, Gamepad2, Tv, Plane, Utensils, Baseball } from 'lucide-react';
 import type { ReactElement } from 'react';
 
 const BilliardIcon = () => (
@@ -9,15 +8,6 @@ const BilliardIcon = () => (
         <text x="12" y="14.5" fill="black" fontSize="4" textAnchor="middle" fontWeight="bold">8</text>
     </svg>
 );
-
-const CricketIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12.15 12.15a2.08 2.08 0 0 0-2.3,0L2.1,19.9a2.08 2.08 0 0 0,0,2.3l.3.3a2.08 2.08 0 0 0,2.3,0l7.75-7.75" />
-        <path d="m15 5-3 3" />
-        <path d="M22 2l-3.5 3.5" />
-        <circle cx="14" cy="10" r="3" />
-    </svg>
-)
 
 
 export const personalInfo = {
@@ -152,7 +142,7 @@ export const hobbies: Hobby[] = [
     { name: "Exploring", icon: <Compass size={32} /> },
     { name: "Gaming", icon: <Gamepad2 size={32} /> },
     { name: "Billiard", icon: <BilliardIcon /> },
-    { name: "Cricket", icon: <CricketIcon /> },
+    { name: "Cricket", icon: <Baseball size={32} /> },
     { name: "Movies & TV", icon: <Tv size={32} /> },
     { name: "Travel & Food", icon: <Plane size={32} /> }
 ];
