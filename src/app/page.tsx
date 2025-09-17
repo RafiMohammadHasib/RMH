@@ -217,7 +217,7 @@ export default function Home() {
                          </ul>
                        </div>
                      </div>
-                     <div className={`hidden md:block w-1/2 ${index % 2 !== 0 ? 'md:pr-8 md:order-1' : 'md:pl-8'}`}></div>
+                     <div className={`hidden md:block w-1/2 ${index % 2 !== 0 ? 'md:pr-8 md:order-1' : 'text-left'}`}></div>
                      <div className="absolute left-0 top-1 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-primary rounded-full z-10 border-4 border-background transition-transform duration-300 group-hover:scale-125"></div>
                    </div>
                  ))}
