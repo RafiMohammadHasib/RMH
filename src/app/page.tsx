@@ -199,28 +199,45 @@ export default function Home() {
                 </p>
               </div>
               <div className="relative mt-10 max-w-5xl mx-auto">
-                <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-border"></div>
+                <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-border transform -translate-x-1/2"></div>
                 {experiences.map((exp, index) => (
                   <div
                     key={index}
-                    className={`relative flex w-full mb-12 group ${
-                      index % 2 === 0 ? 'flex-row-reverse' : ''
+                    className={`relative flex items-start w-full mb-12 group ${
+                      index % 2 === 0 ? 'md:flex-row-reverse md:text-left' : 'md:text-right'
                     }`}
                   >
-                    <div className="w-5/12"></div>
-                    <div className="w-5/12">
-                      <div className={`text-right ${index % 2 === 0 ? 'md:text-left' : 'md:text-right'}`}>
-                        <p className="text-sm text-muted-foreground">
-                          {exp.period}
-                        </p>
-                        <h3 className="text-xl font-bold mt-1">{exp.title}</h3>
-                        <p className="text-md text-primary">{exp.company}</p>
-                        <ul className="mt-4 list-disc list-inside text-muted-foreground space-y-2 text-left">
-                          {exp.responsibilities.map((item, i) => (
-                            <li key={i}>{item}</li>
-                          ))}
-                        </ul>
-                      </div>
+                    <div className="w-1/2 md:pr-8">
+                       {index % 2 !== 0 && (
+                        <div className="text-right">
+                          <p className="text-sm text-muted-foreground">
+                            {exp.period}
+                          </p>
+                          <h3 className="text-xl font-bold mt-1">{exp.title}</h3>
+                          <p className="text-md text-primary">{exp.company}</p>
+                          <ul className="mt-4 list-disc list-inside text-muted-foreground space-y-2 text-left">
+                            {exp.responsibilities.map((item, i) => (
+                              <li key={i}>{item}</li>
+                            ))}
+                          </ul>
+                        </div>
+                       )}
+                    </div>
+                    <div className="w-1/2 md:pl-8">
+                       {index % 2 === 0 && (
+                        <div>
+                          <p className="text-sm text-muted-foreground">
+                            {exp.period}
+                          </p>
+                          <h3 className="text-xl font-bold mt-1">{exp.title}</h3>
+                          <p className="text-md text-primary">{exp.company}</p>
+                          <ul className="mt-4 list-disc list-inside text-muted-foreground space-y-2">
+                            {exp.responsibilities.map((item, i) => (
+                              <li key={i}>{item}</li>
+                            ))}
+                          </ul>
+                        </div>
+                       )}
                     </div>
                      <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full z-10 border-4 border-background transition-transform duration-300 group-hover:scale-125"></div>
                   </div>
