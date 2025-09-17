@@ -202,23 +202,20 @@ export default function Home() {
                 </p>
               </div>
               <div className="relative mt-10 max-w-5xl mx-auto">
-                <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 bg-border md:transform md:-translate-x-1/2"></div>
+                <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-border transform -translate-x-1/2"></div>
                 {experiences.map((exp, index) => (
-                   <div key={index} className="relative md:flex items-start w-full mb-12 group">
-                     <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8 md:order-2'}`}>
-                       <div className={`${index % 2 === 0 ? 'text-left md:text-right' : 'text-left'}`}>
+                   <div key={index} className="relative flex items-start w-full mb-12 group">
+                      <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 order-2 text-left'}`}>
                          <p className="text-sm text-muted-foreground">{exp.period}</p>
                          <h3 className="text-xl font-bold mt-1">{exp.title}</h3>
                          <p className="text-md text-primary">{exp.company}</p>
-                         <ul className="mt-4 list-disc list-inside text-muted-foreground space-y-2 text-left">
+                         <ul className="mt-4 list-disc list-inside text-muted-foreground space-y-2">
                            {exp.responsibilities.map((item, i) => (
                              <li key={i}>{item}</li>
                            ))}
                          </ul>
                        </div>
-                     </div>
-                     <div className={`hidden md:block w-1/2 ${index % 2 !== 0 ? 'md:pr-8 md:order-1' : 'text-left'}`}></div>
-                     <div className="absolute left-0 top-1 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-primary rounded-full z-10 border-4 border-background transition-transform duration-300 group-hover:scale-125"></div>
+                     <div className="absolute left-1/2 top-1 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full z-10 border-4 border-background transition-transform duration-300 group-hover:scale-125"></div>
                    </div>
                  ))}
               </div>
