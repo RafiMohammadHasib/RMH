@@ -204,20 +204,25 @@ export default function Home() {
               <div className="relative mt-10 max-w-5xl mx-auto">
                 <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-border transform -translate-x-1/2"></div>
                 {experiences.map((exp, index) => (
-                   <div key={index} className="relative flex items-start w-full mb-12 group">
-                      <div className={`w-1/2 ${index % 2 === 0 ? 'pr-12 text-right' : 'pl-12 order-2 text-left'}`}>
-                         <p className="text-sm text-muted-foreground">{exp.period}</p>
-                         <h3 className="text-xl font-bold mt-1">{exp.title}</h3>
-                         <p className="text-md text-primary">{exp.company}</p>
-                         <ul className="mt-4 list-disc list-inside text-muted-foreground space-y-2">
-                           {exp.responsibilities.map((item, i) => (
-                             <li key={i}>{item}</li>
-                           ))}
-                         </ul>
-                       </div>
-                     <div className="absolute left-1/2 top-1 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full z-10 border-4 border-background transition-transform duration-300 group-hover:scale-125"></div>
-                   </div>
-                 ))}
+                  <div key={index} className="relative group mb-12">
+                    <div className="flex items-start">
+                      <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 order-2 text-left'}`}>
+                        <div className="p-4 rounded-lg border bg-card shadow-sm">
+                          <p className="text-sm text-muted-foreground">{exp.period}</p>
+                          <h3 className="text-xl font-bold mt-1">{exp.title}</h3>
+                          <p className="text-md text-primary">{exp.company}</p>
+                          <ul className={`mt-4 list-disc list-inside text-muted-foreground space-y-2 ${index % 2 === 0 ? 'text-right' : 'text-left'}`}>
+                            {exp.responsibilities.map((item, i) => (
+                              <li key={i}>{item}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                      <div className={`w-1/2 ${index % 2 === 0 ? 'order-2' : ''}`}></div>
+                    </div>
+                    <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-primary rounded-full z-10 border-4 border-background transition-transform duration-300 group-hover:scale-125"></div>
+                  </div>
+                ))}
               </div>
             </div>
           </ScrollAnimation>
