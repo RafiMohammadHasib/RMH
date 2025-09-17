@@ -205,7 +205,7 @@ export default function Home() {
                 <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-border transform -translate-x-1/2"></div>
                 {experiences.map((exp, index) => (
                    <div key={index} className="relative flex items-start w-full mb-12 group">
-                      <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 order-2 text-left'}`}>
+                      <div className={`w-1/2 ${index % 2 === 0 ? 'pr-12 text-right' : 'pl-12 order-2 text-left'}`}>
                          <p className="text-sm text-muted-foreground">{exp.period}</p>
                          <h3 className="text-xl font-bold mt-1">{exp.title}</h3>
                          <p className="text-md text-primary">{exp.company}</p>
