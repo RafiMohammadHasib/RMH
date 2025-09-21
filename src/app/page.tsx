@@ -204,7 +204,7 @@ export default function Home() {
               <div className="relative mt-10 max-w-5xl mx-auto">
                 <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-border transform -translate-x-1/2"></div>
                 {experiences.map((exp, index) => (
-                  <div key={index} className="relative mb-8">
+                  <div key={index} className="relative mb-16">
                     <div className="md:grid md:grid-cols-2 md:gap-8 items-start">
                       <div className={`text-left md:text-right ${index % 2 === 0 ? 'md:order-1' : 'md:order-2'}`}>
                         <p className="text-sm text-muted-foreground">{exp.period}</p>
