@@ -145,7 +145,7 @@ export default function Home() {
                 </Button>
                 <Button asChild size="lg" variant="secondary">
                   <a
-                    href="https://drive.google.com/file/d/1XmeZuDogdmDbcOV96qiaQWtt79HA-FxP/view?usp=drive_link"
+                    href="https://drive.google.com/file/d/12bEJeHuBAM1P0kcg8TmGnGBx6o4uoyH-/view"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
