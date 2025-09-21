@@ -211,7 +211,7 @@ export default function Home() {
                           <p className="text-sm text-muted-foreground">{exp.period}</p>
                           <h3 className="text-xl font-bold mt-1">{exp.title}</h3>
                           <p className="text-md text-primary">{exp.company}</p>
-                          <ul className={`mt-4 list-disc list-inside text-muted-foreground space-y-2 ${index % 2 === 0 ? 'text-right' : 'text-left'}`}>
+                          <ul className="mt-4 list-disc list-inside text-muted-foreground space-y-2 text-left">
                             {exp.responsibilities.map((item, i) => (
                               <li key={i}>{item}</li>
                             ))}
