@@ -60,13 +60,12 @@ export const experiences = [
         period: "July 2025 - Present",
         title: "Business Developer and Assistant Software Engineer",
         responsibilities: [
-            "Talk to clients for business needs, offer services, and arrange meetings to close deals.",
-            "Visit clients to build and maintain strong relationships.",
-            "Track client records and sales progress using CRM software.",
-            "Handle follow-up communications to ensure client satisfaction.",
-            "Create content plans and develop websites for clients.",
-            "Conduct manual testing on existing software and websites.",
-            "Develop and execute strategic business plans."
+            "Spearheaded client acquisition by identifying business needs, presenting targeted service solutions, and successfully closing deals through strategic meeting arrangements.",
+            "Cultivated and solidified client relationships through proactive on-site visits and dedicated follow-up communication, ensuring high levels of satisfaction.",
+            "Drove sales and managed client pipelines effectively using advanced CRM software.",
+            "Owned the end-to-end process of content strategy and website development for key clients.",
+            "Ensured product excellence by conducting rigorous manual testing on software and websites.",
+            "Architected and executed comprehensive business plans to drive strategic growth."
         ]
     },
     {
@@ -74,12 +73,12 @@ export const experiences = [
         period: "September 2024 - May 2025",
         title: "Business Development Executive",
         responsibilities: [
-            "Met with new and current clients to understand their needs and explain software services.",
-            "Visited clients to build trust, offer solutions, and make business deals.",
-            "Used HubSpot CRM to keep track of meetings, contacts, and sales updates.",
-            "Handled follow-up calls, emails, and messages to answer client questions and support them.",
-            "Worked with other teams to make sure clients were happy with the service.",
-            "Helped plan and build strategies to develop business and find new opportunities."
+            "Drove business growth by proactively engaging new and existing clients to diagnose their needs and deliver compelling software service presentations.",
+            "Forged strong client partnerships and secured business deals through strategic on-site consultations and solution-oriented proposals.",
+            "Managed the full sales lifecycle with HubSpot CRM, ensuring meticulous tracking of meetings, contacts, and deal progression.",
+            "Ensured exceptional client support and follow-through via persistent and thoughtful communication.",
+            "Collaborated across teams to guarantee seamless service delivery and client satisfaction.",
+            "Contributed to strategic planning sessions to identify and capitalize on new business opportunities."
         ]
     },
     {
@@ -87,13 +86,12 @@ export const experiences = [
         period: "October 2023 - August 2024",
         title: "Sales and Marketing Specialist (Software)",
         responsibilities: [
-            "Attend client business meetings to understand needs and recommend suitable software solutions.",
-            "Set up meetings and created tailored proposals to promote software services.",
-            "Handled follow-up calls, emails, and messages to assist clients and resolve concerns.",
-            "Provided after-sales technical support to ensure client satisfaction.",
-            "Conducted manual testing to identify bugs and ensure software quality.",
-            "Managed client records and communication using CRM tools.",
-            "Shared performance insights and reports to support team strategy and decision-making."
+            "Led client consultations to diagnose business challenges and architect tailored software solutions.",
+            "Secured new business by orchestrating meetings and delivering customized proposals that showcased the value of our software services.",
+            "Maintained client engagement and resolved concerns through diligent follow-up communications.",
+            "Provided exemplary after-sales technical support to ensure long-term client satisfaction and retention.",
+            "Upheld software quality standards by performing detailed manual testing to identify and report bugs.",
+            "Leveraged CRM tools to manage client data and communications, providing key insights to inform team strategy."
         ]
     },
     {
@@ -101,10 +99,10 @@ export const experiences = [
         period: "May 2023 - October 2023",
         title: "Sales and Marketing Executive (Software)",
         responsibilities: [
-            "Created and posted content on social media to promote company services.",
-            "Tested mobile apps to make sure they worked well before launch.",
-            "Attended meetings to learn about client needs and offer the right products.",
-            "Built strong connections with clients to earn their trust and grow business."
+            "Executed targeted social media campaigns that successfully promoted company services and drove engagement.",
+            "Ensured optimal app performance and user experience by conducting thorough pre-launch testing.",
+            "Acted as a key liaison in client meetings, translating their needs into actionable product recommendations.",
+            "Built and nurtured strong client relationships, establishing a foundation of trust that fueled business growth."
         ]
     },
     {
@@ -112,10 +110,10 @@ export const experiences = [
         period: "November 2022 - April 2023",
         title: "Marketing Executive",
         responsibilities: [
-            "Tested websites and found areas that needed fixing or improvement.",
-            "Managed Facebook ads to reach the right audience and increase views.",
-            "Wrote clear content for ads and websites while using basic SEO rules.",
-            "Helped improve local search rankings through SEO strategies."
+            "Improved website functionality and user experience by conducting detailed site audits and identifying key areas for enhancement.",
+            "Managed and optimized Facebook ad campaigns to maximize reach and audience engagement.",
+            "Developed compelling ad copy and website content, implementing foundational SEO principles to boost visibility.",
+            "Strengthened local search presence by executing effective local SEO strategies."
         ]
     }
 ];
