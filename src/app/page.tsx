@@ -188,7 +188,7 @@ export default function Home() {
         </section>
 
         <section id="experience" className="py-16 md:py-24">
-           <ScrollAnimation>
+          <ScrollAnimation>
             <div className="container">
               <div className="mx-auto max-w-4xl text-center mb-12">
                 <div className="flex items-center justify-center gap-4">
@@ -202,25 +202,26 @@ export default function Home() {
                 </p>
               </div>
               <div className="relative mt-10 max-w-5xl mx-auto">
-                <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 bg-border md:transform md:-translate-x-1/2 ml-3.5"></div>
+                <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-border transform -translate-x-1/2"></div>
                 {experiences.map((exp, index) => (
                   <div key={index} className="relative group mb-12">
                     <div className="md:flex md:items-start">
-                      <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:pr-8 md:text-right' : 'md:pl-8 md:order-2 text-left'}`}>
-                        <div className="p-4 rounded-lg border bg-card shadow-sm ml-8 md:ml-0">
-                          <p className="text-sm text-muted-foreground">{exp.period}</p>
-                          <h3 className="text-xl font-bold mt-1">{exp.title}</h3>
-                          <p className="text-md text-primary">{exp.company}</p>
-                          <ul className="mt-4 list-disc list-inside text-muted-foreground space-y-2 text-left">
+                      <div className="w-full md:w-1/2 md:pr-8 md:text-right">
+                        <p className="text-sm text-muted-foreground">{exp.period}</p>
+                        <h3 className="text-xl font-bold mt-1">{exp.title}</h3>
+                        <p className="text-md text-primary">{exp.company}</p>
+                      </div>
+                      <div className="w-full md:w-1/2 md:pl-8 mt-4 md:mt-0">
+                         <div className="p-4 rounded-lg border bg-card shadow-sm">
+                          <ul className="list-disc list-inside text-muted-foreground space-y-2 text-left">
                             {exp.responsibilities.map((item, i) => (
                               <li key={i}>{item}</li>
                             ))}
                           </ul>
                         </div>
                       </div>
-                      <div className={`hidden md:block md:w-1/2 ${index % 2 === 0 ? 'md:order-2' : ''}`}></div>
                     </div>
-                    <div className="absolute left-0 top-1/2 transform -translate-y-1/2 w-4 h-4 bg-primary rounded-full z-10 border-4 border-background md:left-1/2 md:-translate-x-1/2 transition-transform duration-300 group-hover:scale-125 ml-1.5"></div>
+                    <div className="absolute left-1/2 top-1.5 transform -translate-y-1/2 w-4 h-4 bg-primary rounded-full z-10 border-4 border-background md:left-1/2 md:-translate-x-1/2 transition-transform duration-300 group-hover:scale-125"></div>
                   </div>
                 ))}
               </div>
