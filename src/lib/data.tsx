@@ -62,11 +62,11 @@ export const experiences = [
         location: "Dhaka, Bangladesh",
         description: "Driving growth by architecting strategic business plans, forging key client relationships, and ensuring product excellence from conception to delivery.",
         responsibilities: [
-            "Closed deals by identifying client needs, presenting targeted solutions, and securing business through strategic negotiations.",
+            "Secured new business by identifying client needs, presenting targeted solutions, and executing strategic negotiations to close deals.",
             "Strengthened client retention by conducting proactive on-site visits and ensuring consistent, high-quality follow-up communication.",
-            "Managed the entire sales pipeline using advanced CRM software, optimizing for efficiency and growth.",
-            "Oversaw the full lifecycle of client websites, from content strategy to final deployment.",
-            "Upheld software quality by performing rigorous manual testing to identify and eliminate bugs pre-launch.",
+            "Managed the entire sales pipeline using advanced CRM software, optimizing processes for efficiency and scalable growth.",
+            "Oversaw the full lifecycle of client websites, from initial content strategy and development to final deployment and maintenance.",
+            "Upheld software quality by performing rigorous manual testing to identify, troubleshoot, and eliminate bugs pre-launch.",
         ],
         technologies: ["CRM Software", "Manual Testing", "Content Strategy", "Client Relationship Management"]
     },
@@ -89,16 +89,16 @@ export const experiences = [
     {
         company: "Softifybd Limited",
         period: "October 2023 - August 2024",
-        title: "Sales and Marketing Specialist (Software)",
+        title: "IT Sales and Support Engineer",
         jobType: "Full-time",
         location: "Dhaka, Bangladesh",
         description: "Specialized in translating client business challenges into tangible software solutions while ensuring product quality.",
         responsibilities: [
-            "Closed new business by leading client consultations, diagnosing challenges, and architecting tailored software solutions.",
-            "Crafted and delivered customized proposals that clearly articulated the value and ROI of our software services.",
-            "Provided exemplary after-sales technical support to ensure client success and long-term retention.",
+            "Architected tailored software solutions by leading client consultations and diagnosing business challenges.",
+            "Crafted and delivered compelling proposals that clearly articulated the value and ROI of software services.",
+            "Provided exemplary after-sales technical support to ensure client success and long-term product adoption.",
             "Maintained high software quality standards by conducting detailed manual testing to identify and resolve issues.",
-            "Utilized CRM tools to generate key insights, informing team strategy and improving client communication."
+            "Leveraged CRM insights to inform team strategy, optimize the sales pipeline, and enhance client communication."
         ],
         technologies: ["CRM", "Manual Testing", "Technical Support", "Sales Presentations"]
     },
