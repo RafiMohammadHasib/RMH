@@ -124,24 +124,33 @@ export default function Home() {
       </header>
 
       <main className="flex-1">
-        <section id="hero" className="w-full pt-24 md:pt-32 pb-16 md:pb-24">
-          <div className="container px-4 md:px-6">
-            <ScrollAnimation className="grid gap-6 lg:grid-cols-12 lg:gap-12">
-              <div className="lg:col-span-12 space-y-4">
-                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
+        <section id="hero" className="relative w-full h-[80vh] md:h-screen">
+          <Image
+            src="https://i.imgur.com/gCFdC3g.jpeg"
+            alt="A professional portrait of Rafi Mohammad Hasib"
+            fill
+            className="object-cover"
+            priority
+            data-ai-hint="professional portrait"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
+          <div className="absolute inset-0 flex items-center justify-center text-center text-white">
+            <ScrollAnimation>
+              <div className="space-y-4">
+                <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl/none text-shadow-lg">
                   Hello, I'm {personalInfo.name}
                 </h1>
-                <p className="max-w-[600px] text-muted-foreground md:text-xl">
+                <p className="max-w-[600px] mx-auto text-lg md:text-xl text-white/90">
                   {personalInfo.title}
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4 mt-6">
-                  <Button asChild size="lg">
+                <div className="flex flex-col sm:flex-row gap-4 mt-6 justify-center">
+                  <Button asChild size="lg" className="bg-white text-black hover:bg-white/90">
                     <a href={`mailto:${personalInfo.email}`}>
                       <Mail className="mr-2 h-5 w-5" />
                       Get in Touch
                     </a>
                   </Button>
-                  <Button asChild size="lg" variant="secondary">
+                  <Button asChild size="lg" variant="secondary" className="bg-white/20 text-white hover:bg-white/30 backdrop-blur-sm">
                     <a
                       href="https://drive.google.com/file/d/12bEJeHuBAM1P0kcg8TmGnGBx6o4uoyH-/view"
                       target="_blank"
@@ -154,59 +163,48 @@ export default function Home() {
                 </div>
               </div>
             </ScrollAnimation>
-            <ScrollAnimation className="mt-12">
-              <Image
-                src="/hero-image.jpg"
-                alt="Rafi Mohammad Hasib working on a laptop"
-                width={1200}
-                height={600}
-                className="rounded-xl object-cover w-full aspect-[2/1] shadow-lg"
-                priority
-                data-ai-hint="professional workspace"
-              />
-            </ScrollAnimation>
           </div>
         </section>
 
         <section id="about" className="py-16 md:py-24 bg-card border-y">
           <div className="container">
-              <ScrollAnimation className="mb-12">
-                  <div className="flex items-center gap-4 mb-4">
-                    <User className="h-8 w-8 text-primary" />
-                    <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
-                      About Me
-                    </h2>
-                  </div>
-                  <p className="text-lg text-muted-foreground max-w-5xl">
-                    {personalInfo.bio}
-                  </p>
-              </ScrollAnimation>
-              
-              <div className="grid lg:grid-cols-3 gap-12 items-start">
-                  <div className="lg:col-span-2 space-y-8">
-                    <ScrollAnimation>
-                      <h3 className="text-2xl font-bold tracking-tighter md:text-3xl">My Skills & Expertise</h3>
-                      <div className="space-y-8 mt-4">
-                          {skillCategories.map((category) => (
-                              <Card key={category.title} className="text-left bg-background/50 hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
-                                  <CardHeader className="flex flex-row items-center gap-4 pb-4">
-                                      <div className="p-3 bg-primary/10 rounded-lg text-primary">
-                                          {category.icon}
-                                      </div>
-                                      <CardTitle className="text-xl">{category.title}</CardTitle>
-                                  </CardHeader>
-                                  <CardContent>
-                                      <div className="flex flex-wrap gap-2">
-                                          {category.skills.map((skill) => (
-                                              <Badge key={skill} variant="secondary">{skill}</Badge>
-                                          ))}
-                                      </div>
-                                  </CardContent>
-                              </Card>
-                          ))}
-                      </div>
-                    </ScrollAnimation>
-                    <ScrollAnimation>
+            <ScrollAnimation className="mb-12">
+              <div className="flex items-center gap-4 mb-4">
+                <User className="h-8 w-8 text-primary" />
+                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
+                  About Me
+                </h2>
+              </div>
+              <p className="text-lg text-muted-foreground max-w-5xl">
+                {personalInfo.bio}
+              </p>
+            </ScrollAnimation>
+            
+            <div className="grid lg:grid-cols-3 gap-12 items-start">
+                <div className="lg:col-span-2 space-y-8">
+                  <ScrollAnimation>
+                    <h3 className="text-2xl font-bold tracking-tighter md:text-3xl">My Skills & Expertise</h3>
+                    <div className="space-y-8 mt-4">
+                        {skillCategories.map((category) => (
+                            <Card key={category.title} className="text-left bg-background/50 hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
+                                <CardHeader className="flex flex-row items-center gap-4 pb-4">
+                                    <div className="p-3 bg-primary/10 rounded-lg text-primary">
+                                        {category.icon}
+                                    </div>
+                                    <CardTitle className="text-xl">{category.title}</CardTitle>
+                                </CardHeader>
+                                <CardContent>
+                                    <div className="flex flex-wrap gap-2">
+                                        {category.skills.map((skill) => (
+                                            <Badge key={skill} variant="secondary">{skill}</Badge>
+                                        ))}
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        ))}
+                    </div>
+                  </ScrollAnimation>
+                   <ScrollAnimation>
                       <Card className="bg-background/50 hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
                         <CardHeader>
                           <CardTitle>Hobbies</CardTitle>
@@ -225,44 +223,44 @@ export default function Home() {
                         </CardContent>
                       </Card>
                     </ScrollAnimation>
-                  </div>
+                </div>
 
-                  <div className="space-y-8">
-                    <ScrollAnimation>
-                      <h3 className="text-2xl font-bold tracking-tighter">Quick Facts</h3>
-                      <div className="space-y-6 mt-4">
-                        {quickFacts.map((fact) => (
-                          <Card key={fact.label} className="bg-background/50 hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
-                            <CardContent className="p-6 flex flex-col items-center text-center gap-2">
-                              <div className="p-3 bg-primary/10 rounded-full text-primary mb-2">
-                                {fact.icon}
-                              </div>
-                              <p className="text-3xl font-bold text-primary">{fact.value}</p>
-                              <p className="text-muted-foreground">{fact.label}</p>
-                            </CardContent>
-                          </Card>
-                        ))}
-                      </div>
-                    </ScrollAnimation>
-                    <ScrollAnimation>
-                      <Card className="bg-background/50 hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
-                        <CardHeader>
-                          <CardTitle>Languages</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                          <ul className="space-y-3">
-                            {languages.map(lang => (
-                              <li key={lang.name} className="flex justify-between items-center">
-                                <span>{lang.name}</span>
-                                <span className="text-primary font-semibold">{lang.level}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </CardContent>
-                      </Card>
-                    </ScrollAnimation>
-                  </div>
-              </div>
+                <div className="space-y-8">
+                  <ScrollAnimation>
+                    <h3 className="text-2xl font-bold tracking-tighter">Quick Facts</h3>
+                    <div className="space-y-6 mt-4">
+                      {quickFacts.map((fact) => (
+                        <Card key={fact.label} className="bg-background/50 hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
+                          <CardContent className="p-6 flex flex-col items-center text-center gap-2">
+                            <div className="p-3 bg-primary/10 rounded-full text-primary mb-2">
+                              {fact.icon}
+                            </div>
+                            <p className="text-3xl font-bold text-primary">{fact.value}</p>
+                            <p className="text-muted-foreground">{fact.label}</p>
+                          </CardContent>
+                        </Card>
+                      ))}
+                    </div>
+                  </ScrollAnimation>
+                  <ScrollAnimation>
+                    <Card className="bg-background/50 hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
+                      <CardHeader>
+                        <CardTitle>Languages</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <ul className="space-y-3">
+                          {languages.map(lang => (
+                            <li key={lang.name} className="flex justify-between items-center">
+                              <span>{lang.name}</span>
+                              <span className="text-primary font-semibold">{lang.level}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </CardContent>
+                    </Card>
+                  </ScrollAnimation>
+                </div>
+            </div>
           </div>
         </section>
 
@@ -472,5 +470,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
