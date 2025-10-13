@@ -335,44 +335,57 @@ export default function Home() {
         </section>
 
         <section id="education" className="py-16 md:py-24 bg-card border-y">
-           <ScrollAnimation>
-            <div className="container">
-              <div className="mx-auto max-w-4xl text-center mb-12">
-                 <div className="flex items-center justify-center gap-4">
-                  <GraduationCap className="h-8 w-8 text-primary" />
-                  <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
-                    My Academic Background
-                  </h2>
-                </div>
-                <p className="mt-4 text-lg text-muted-foreground">
-                  My educational milestones and key projects.
-                </p>
+          <div className="container">
+            <div className="mx-auto max-w-4xl text-center mb-12">
+              <div className="flex items-center justify-center gap-4">
+                <GraduationCap className="h-8 w-8 text-primary" />
+                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
+                  My Academic Background
+                </h2>
               </div>
-              <div className="grid gap-8 md:grid-cols-2 max-w-5xl mx-auto">
-                {education.map((edu, index) => (
-                  <div key={index} className="flex gap-6">
-                    <div className="flex-shrink-0">
-                      <GraduationCap className="h-8 w-8 text-primary" />
-                    </div>
-                    <div>
-                      <p className="text-sm text-muted-foreground">
-                        {edu.period}
-                      </p>
-                      <h3 className="text-xl font-bold mt-1">{edu.degree}</h3>
-                      <p className="text-md text-primary">{edu.institution}</p>
-                      {edu.projects && (
-                        <ul className="mt-4 list-disc list-inside text-muted-foreground space-y-2">
-                          {edu.projects.map((project, i) => (
-                            <li key={i}>{project}</li>
-                          ))}
-                        </ul>
-                      )}
-                    </div>
-                  </div>
-                ))}
-              </div>
+              <p className="mt-4 text-lg text-muted-foreground">
+                My educational milestones and key projects.
+              </p>
             </div>
-          </ScrollAnimation>
+            <div className="relative max-w-5xl mx-auto">
+              <div className="absolute left-3 top-0 bottom-0 w-0.5 bg-border hidden md:block"></div>
+              {education.map((edu, index) => (
+                <ScrollAnimation key={index} className="mb-12">
+                  <div className="relative pl-12 md:pl-16 group">
+                     <div className="absolute left-0 top-1.5 w-6 h-6 bg-primary rounded-full z-10 border-4 border-background flex items-center justify-center">
+                       <GraduationCap className="w-3 h-3 text-primary-foreground"/>
+                     </div>
+                    <Card className="transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-xl">
+                      <div className="p-6">
+                        <div className="flex flex-col md:flex-row justify-between md:items-start mb-4">
+                          <div>
+                             <p className="text-sm text-muted-foreground">
+                                {edu.period}
+                             </p>
+                            <h3 className="text-xl font-bold mt-1">{edu.degree}</h3>
+                            <p className="text-md text-primary font-semibold">{edu.institution}</p>
+                          </div>
+                        </div>
+
+                        {edu.projects && (
+                          <div>
+                            <h4 className="flex items-center text-lg font-semibold mb-3">
+                              <BookOpen className="mr-2 text-primary" /> Key Projects & Papers
+                            </h4>
+                            <ul className="list-disc list-inside text-muted-foreground space-y-2">
+                              {edu.projects.map((project, i) => (
+                                <li key={i}>{project}</li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+                      </div>
+                    </Card>
+                  </div>
+                </ScrollAnimation>
+              ))}
+            </div>
+          </div>
         </section>
 
         <section id="portfolio" className="py-16 md:py-24 bg-card border-y">
