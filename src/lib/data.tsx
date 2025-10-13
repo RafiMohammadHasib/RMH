@@ -1,5 +1,4 @@
-
-import { Compass, Gamepad2, Tv, Plane } from 'lucide-react';
+import { Compass, Gamepad2, Tv, Plane, TrendingUp } from 'lucide-react';
 import type { ReactElement } from 'react';
 
 const BilliardIcon = () => (
@@ -12,7 +11,7 @@ const BilliardIcon = () => (
 
 const CricketIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12.15 12.15a2.08 2.08 0 0 0-2.3,0L2.1,19.9a2.08 2.08 0 0 0,0,2.3l.3.3a2.08 2.08 0 0 0,2.3,0l7.75-7.75" />
+        <path d="M12.15 12.15a2.08 2.08 0 0 0-2.3,0L2.1,19.9a2.08 2.08 0 0 0,0,2.3l.3.3a2.08 2.08 0 0 0,2.3,0,l7.75-7.75" />
         <path d="m15 5-3 3" />
         <path d="M22 2l-3.5 3.5" />
         <circle cx="14" cy="10" r="3" />
@@ -59,62 +58,79 @@ export const experiences = [
         company: "Euro IT",
         period: "July 2025 - Present",
         title: "Business Developer and Assistant Software Engineer",
+        jobType: "Full-time",
+        location: "Dhaka, Bangladesh",
+        description: "Driving growth by architecting strategic business plans, forging key client relationships, and ensuring product excellence from conception to delivery.",
         responsibilities: [
-            "Spearheaded client acquisition by identifying business needs, presenting targeted service solutions, and successfully closing deals through strategic meeting arrangements.",
-            "Cultivated and solidified client relationships through proactive on-site visits and dedicated follow-up communication, ensuring high levels of satisfaction.",
-            "Drove sales and managed client pipelines effectively using advanced CRM software.",
-            "Owned the end-to-end process of content strategy and website development for key clients.",
-            "Ensured product excellence by conducting rigorous manual testing on software and websites.",
-            "Architected and executed comprehensive business plans to drive strategic growth."
-        ]
+            "Closed deals by identifying client needs, presenting targeted solutions, and securing business through strategic negotiations.",
+            "Strengthened client retention by conducting proactive on-site visits and ensuring consistent, high-quality follow-up communication.",
+            "Managed the entire sales pipeline using advanced CRM software, optimizing for efficiency and growth.",
+            "Oversaw the full lifecycle of client websites, from content strategy to final deployment.",
+            "Upheld software quality by performing rigorous manual testing to identify and eliminate bugs pre-launch.",
+        ],
+        technologies: ["CRM Software", "Manual Testing", "Content Strategy", "Client Relationship Management"]
     },
     {
         company: "Lnkits Technology",
         period: "September 2024 - May 2025",
         title: "Business Development Executive",
+        jobType: "Full-time",
+        location: "Dhaka, Bangladesh",
+        description: "Played a pivotal role in expanding the company's client base through strategic outreach and solution-oriented sales strategies.",
         responsibilities: [
-            "Drove business growth by proactively engaging new and existing clients to diagnose their needs and deliver compelling software service presentations.",
-            "Forged strong client partnerships and secured business deals through strategic on-site consultations and solution-oriented proposals.",
-            "Managed the full sales lifecycle with HubSpot CRM, ensuring meticulous tracking of meetings, contacts, and deal progression.",
-            "Ensured exceptional client support and follow-through via persistent and thoughtful communication.",
-            "Collaborated across teams to guarantee seamless service delivery and client satisfaction.",
-            "Contributed to strategic planning sessions to identify and capitalize on new business opportunities."
-        ]
+            "Secured new business by engaging prospective clients, diagnosing their technical needs, and delivering persuasive service presentations.",
+            "Built and maintained strong client partnerships through strategic on-site consultations and solution-oriented proposals.",
+            "Leveraged HubSpot CRM to meticulously track the full sales lifecycle, from initial contact to deal closure.",
+            "Guaranteed exceptional client satisfaction through persistent and thoughtful communication and support.",
+            "Collaborated with cross-functional teams to ensure seamless service delivery and alignment with client goals."
+        ],
+        technologies: ["HubSpot CRM", "Sales Strategy", "Client Acquisition", "Team Collaboration"]
     },
     {
         company: "Softifybd Limited",
         period: "October 2023 - August 2024",
         title: "Sales and Marketing Specialist (Software)",
+        jobType: "Full-time",
+        location: "Dhaka, Bangladesh",
+        description: "Specialized in translating client business challenges into tangible software solutions while ensuring product quality.",
         responsibilities: [
-            "Led client consultations to diagnose business challenges and architect tailored software solutions.",
-            "Secured new business by orchestrating meetings and delivering customized proposals that showcased the value of our software services.",
-            "Maintained client engagement and resolved concerns through diligent follow-up communications.",
-            "Provided exemplary after-sales technical support to ensure long-term client satisfaction and retention.",
-            "Upheld software quality standards by performing detailed manual testing to identify and report bugs.",
-            "Leveraged CRM tools to manage client data and communications, providing key insights to inform team strategy."
-        ]
+            "Closed new business by leading client consultations, diagnosing challenges, and architecting tailored software solutions.",
+            "Crafted and delivered customized proposals that clearly articulated the value and ROI of our software services.",
+            "Provided exemplary after-sales technical support to ensure client success and long-term retention.",
+            "Maintained high software quality standards by conducting detailed manual testing to identify and resolve issues.",
+            "Utilized CRM tools to generate key insights, informing team strategy and improving client communication."
+        ],
+        technologies: ["CRM", "Manual Testing", "Technical Support", "Sales Presentations"]
     },
     {
         company: "INovex Idea Solution Limited",
         period: "May 2023 - October 2023",
         title: "Sales and Marketing Executive (Software)",
+        jobType: "Full-time",
+        location: "Dhaka, Bangladesh",
+        description: "Contributed to business growth by aligning marketing efforts with sales strategies and ensuring product readiness.",
         responsibilities: [
-            "Executed targeted social media campaigns that successfully promoted company services and drove engagement.",
-            "Ensured optimal app performance and user experience by conducting thorough pre-launch testing.",
-            "Acted as a key liaison in client meetings, translating their needs into actionable product recommendations.",
-            "Built and nurtured strong client relationships, establishing a foundation of trust that fueled business growth."
-        ]
+            "Executed targeted social media campaigns that successfully promoted company services and boosted engagement.",
+            "Ensured optimal app performance by conducting thorough pre-launch testing to guarantee a seamless user experience.",
+            "Acted as a key liaison in client meetings, translating their requirements into actionable product recommendations.",
+            "Forged strong client relationships built on trust, which fueled sustained business growth."
+        ],
+        technologies: ["Social Media Marketing", "App Testing", "Client Relations"]
     },
     {
         company: "Digital Marketing Solution (Pvt.) Limited",
         period: "November 2022 - April 2023",
         title: "Marketing Executive",
+        jobType: "Full-time",
+        location: "Dhaka, Bangladesh",
+        description: "Focused on enhancing digital presence and user engagement through targeted marketing and website optimization.",
         responsibilities: [
-            "Improved website functionality and user experience by conducting detailed site audits and identifying key areas for enhancement.",
-            "Managed and optimized Facebook ad campaigns to maximize reach and audience engagement.",
-            "Developed compelling ad copy and website content, implementing foundational SEO principles to boost visibility.",
-            "Strengthened local search presence by executing effective local SEO strategies."
-        ]
+            "Improved website functionality and user experience by conducting detailed site audits and implementing key enhancements.",
+            "Managed and optimized Facebook ad campaigns to maximize reach, engagement, and conversion rates.",
+            "Developed compelling ad copy and website content, implementing foundational SEO to boost online visibility.",
+            "Strengthened local search presence by executing effective local SEO and content strategies."
+        ],
+        technologies: ["SEO", "Facebook Ads", "Content Creation", "Website Audits"]
     }
 ];
 

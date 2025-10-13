@@ -22,6 +22,9 @@ import {
   User,
   Menu,
   Heart,
+  TrendingUp,
+  MapPin,
+  Calendar,
 } from 'lucide-react';
 import GitHubProjects from '@/components/github-projects';
 import { ScrollAnimation } from '@/components/scroll-animation';
@@ -31,6 +34,7 @@ import {
   SheetTrigger,
   SheetClose,
 } from '@/components/ui/sheet';
+import { Card } from '@/components/ui/card';
 
 
 const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -188,45 +192,78 @@ export default function Home() {
         </section>
 
         <section id="experience" className="py-16 md:py-24">
-          <ScrollAnimation>
-            <div className="container">
-              <div className="mx-auto max-w-4xl text-center mb-12">
-                <div className="flex items-center justify-center gap-4">
-                  <Briefcase className="h-8 w-8 text-primary" />
-                  <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
-                    My Professional Journey
-                  </h2>
-                </div>
-                <p className="mt-4 text-lg text-muted-foreground">
-                  A timeline of my professional experience and growth.
-                </p>
+          <div className="container">
+            <div className="mx-auto max-w-4xl text-center mb-12">
+              <div className="flex items-center justify-center gap-4">
+                <Briefcase className="h-8 w-8 text-primary" />
+                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
+                  My Professional Journey
+                </h2>
               </div>
-              <div className="relative mt-10 max-w-5xl mx-auto">
-                <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-border transform -translate-x-1/2 hidden md:block"></div>
-                {experiences.map((exp, index) => (
-                  <div key={index} className="relative mb-12">
-                    <div className="md:grid md:grid-cols-2 md:gap-8 items-start">
-                      <div className={`text-left md:text-right md:pl-8 ${index % 2 === 0 ? 'md:order-1' : 'md:order-2 md:text-left'}`}>
-                         <div className="md:text-right">
-                          <p className="text-sm text-muted-foreground">{exp.period}</p>
-                          <h3 className="text-xl font-bold mt-1">{exp.title}</h3>
-                          <p className="text-md text-primary">{exp.company}</p>
+              <p className="mt-4 text-lg text-muted-foreground">
+                A timeline of my professional experience and growth.
+              </p>
+            </div>
+            <div className="relative max-w-5xl mx-auto">
+              <div className="absolute left-3 top-0 bottom-0 w-0.5 bg-border hidden md:block"></div>
+              {experiences.map((exp, index) => (
+                <ScrollAnimation key={index} className="mb-12">
+                  <div className="relative pl-12 md:pl-16 group">
+                     <div className="absolute left-0 top-1.5 w-6 h-6 bg-primary rounded-full z-10 border-4 border-background flex items-center justify-center">
+                       <Briefcase className="w-3 h-3 text-primary-foreground"/>
+                     </div>
+                    <Card className="transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-xl">
+                      <div className="p-6">
+                        <div className="flex flex-col md:flex-row justify-between md:items-start mb-4">
+                          <div>
+                            <h3 className="text-xl font-bold">{exp.title}</h3>
+                            <p className="text-md text-primary font-semibold">{exp.company}</p>
+                          </div>
+                          <div className="text-sm text-muted-foreground mt-2 md:mt-0 md:text-right">
+                             {exp.jobType && <Badge className="mb-2">{exp.jobType}</Badge>}
+                             <div className="flex items-center gap-2">
+                               <Calendar className="w-4 h-4" />
+                               <span>{exp.period}</span>
+                             </div>
+                             {exp.location && 
+                               <div className="flex items-center gap-2 mt-1">
+                                 <MapPin className="w-4 h-4" />
+                                 <span>{exp.location}</span>
+                               </div>
+                             }
+                          </div>
                         </div>
-                      </div>
-                      <div className={`mt-4 md:mt-0 ${index % 2 === 0 ? 'md:order-2' : 'md:order-1'}`}>
-                          <ul className="list-disc list-inside text-muted-foreground space-y-2 text-left md:pl-8">
+
+                        <p className="text-muted-foreground mb-6">{exp.description}</p>
+                        
+                        <div>
+                          <h4 className="flex items-center text-lg font-semibold mb-3">
+                            <TrendingUp className="mr-2 text-primary" /> Key Achievements
+                          </h4>
+                          <ul className="list-disc list-inside text-muted-foreground space-y-2">
                             {exp.responsibilities.map((item, i) => (
                               <li key={i}>{item}</li>
                             ))}
                           </ul>
+                        </div>
+
+                        {exp.technologies && exp.technologies.length > 0 && (
+                          <div className="mt-6">
+                            <h4 className="text-lg font-semibold mb-3">Technologies Used</h4>
+                            <div className="flex flex-wrap gap-2">
+                              {exp.technologies.map((tech, i) => (
+                                <Badge key={i} variant="secondary">{tech}</Badge>
+                              ))}
+                            </div>
+                          </div>
+                        )}
                       </div>
-                    </div>
-                     <div className="absolute left-1/2 top-1.5 transform -translate-y-1/2 w-4 h-4 bg-primary rounded-full z-10 border-4 border-background -translate-x-1/2 hidden md:block"></div>
+                    </Card>
                   </div>
-                ))}
-              </div>
+                </ScrollAnimation>
+              ))}
             </div>
-          </ScrollAnimation>
+          </div>
         </section>
 
         <section id="education" className="py-16 md:py-24 bg-card border-y">
