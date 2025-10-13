@@ -182,11 +182,11 @@ export default function Home() {
               </div>
               
               <div className="grid lg:grid-cols-5 gap-12 items-start">
-                <div className="lg:col-span-3 space-y-6">
+                <div className="lg:col-span-3 space-y-8">
                   <h3 className="text-2xl font-bold tracking-tighter md:text-3xl">My Skills & Expertise</h3>
                   <div className="grid grid-cols-1 gap-8">
                       {skillCategories.map((category) => (
-                          <Card key={category.title} className="text-left bg-background/50 hover:shadow-lg transition-shadow flex-1">
+                          <Card key={category.title} className="text-left bg-background/50 hover:shadow-lg transition-shadow">
                               <CardHeader className="flex flex-row items-center gap-4 pb-4">
                                   <div className="p-3 bg-primary/10 rounded-lg text-primary">
                                       {category.icon}
