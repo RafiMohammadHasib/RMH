@@ -169,8 +169,8 @@ export default function Home() {
         <section id="about" className="py-16 md:py-24 bg-card border-y">
           <ScrollAnimation>
             <div className="container">
-              <div className="grid lg:grid-cols-3 gap-12 items-start">
-                <div className="lg:col-span-2 space-y-6">
+              <div className="grid lg:grid-cols-5 gap-12 items-start">
+                <div className="lg:col-span-3 space-y-6">
                   <div className="flex items-center gap-4">
                     <User className="h-8 w-8 text-primary" />
                     <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
@@ -185,9 +185,9 @@ export default function Home() {
                       <h3 className="text-2xl font-bold tracking-tighter md:text-3xl mb-8">My Skills & Expertise</h3>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                           {skillCategories.map((category) => (
-                              <Card key={category.title} className="text-left bg-background/50 hover:shadow-lg transition-shadow">
+                              <Card key={category.title} className="text-left bg-background/50 hover:shadow-lg transition-shadow flex-1">
                                   <CardHeader className="flex flex-row items-center gap-4 pb-4">
-                                      <div className="p-2 bg-primary/10 rounded-lg text-primary">
+                                      <div className="p-3 bg-primary/10 rounded-lg text-primary">
                                           {category.icon}
                                       </div>
                                       <CardTitle className="text-xl">{category.title}</CardTitle>
@@ -205,7 +205,7 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="space-y-8">
+                <div className="lg:col-span-2 space-y-8">
                   <h3 className="text-2xl font-bold tracking-tighter">Quick Facts</h3>
                   <div className="space-y-6">
                     {quickFacts.map((fact) => (
@@ -230,21 +230,6 @@ export default function Home() {
                           <li key={lang.name} className="flex justify-between items-center">
                             <span>{lang.name}</span>
                             <span className="text-primary font-semibold">{lang.level}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </CardContent>
-                  </Card>
-                  <Card className="bg-background/50">
-                    <CardHeader>
-                      <CardTitle>Interests</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                       <ul className="space-y-3">
-                        {hobbies.map(hobby => (
-                          <li key={hobby.name} className="flex items-center gap-3">
-                            <div className="text-primary">{hobby.icon}</div>
-                            <span>{hobby.name}</span>
                           </li>
                         ))}
                       </ul>
