@@ -64,56 +64,62 @@ export default function Home() {
   
   return (
     <div className="flex min-h-dvh flex-col bg-background text-foreground font-sans">
-      <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-16 max-w-screen-2xl items-center justify-between">
-          <Link href="/" className="flex items-center gap-2">
-            <Code className="h-6 w-6 text-primary" />
-            <span className="text-xl font-bold">{personalInfo.name}</span>
-          </Link>
+      <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-full max-w-screen-md px-4">
+        <div className="w-full border border-border/40 bg-background/80 backdrop-blur-lg supports-[backdrop-filter]:bg-background/60 rounded-full shadow-lg">
+          <div className="container flex h-16 items-center justify-between px-4 sm:px-6">
+            <Link href="/" className="flex items-center gap-2">
+              <Code className="h-6 w-6 text-primary" />
+              <span className="text-xl font-bold hidden sm:inline-block">{personalInfo.name.split(' ')[0]}</span>
+            </Link>
 
-          <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-foreground/60 hover:text-foreground"
-              >
-                {link.label}
-              </a>
-            ))}
-            <Button asChild>
-              <a href="#contact">Contact</a>
-            </Button>
-          </nav>
-          
-          <Sheet>
-            <SheetTrigger asChild>
-              <Button variant="outline" size="icon" className="md:hidden">
-                <Menu className="h-5 w-5" />
-                <span className="sr-only">Toggle navigation menu</span>
+            <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="text-foreground/60 hover:text-foreground"
+                >
+                  {link.label}
+                </a>
+              ))}
+              <Button asChild size="sm">
+                <a href="#contact">Contact</a>
               </Button>
-            </SheetTrigger>
-            <SheetContent side="right">
-              <div className="grid gap-4 py-6">
-                {navLinks.map((link) => (
-                  <SheetClose asChild key={link.href}>
-                    <a
-                      href={link.href}
-                      className="text-lg font-medium text-foreground hover:text-primary"
-                    >
-                      {link.label}
-                    </a>
+            </nav>
+            
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button variant="outline" size="icon" className="md:hidden rounded-full">
+                  <Menu className="h-5 w-5" />
+                  <span className="sr-only">Toggle navigation menu</span>
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right">
+                <div className="grid gap-4 py-6">
+                  <Link href="/" className="flex items-center gap-2 px-4 mb-4">
+                     <Code className="h-6 w-6 text-primary" />
+                     <span className="text-xl font-bold">{personalInfo.name}</span>
+                  </Link>
+                  {navLinks.map((link) => (
+                    <SheetClose asChild key={link.href}>
+                      <a
+                        href={link.href}
+                        className="text-lg font-medium text-foreground hover:text-primary px-4 py-2 rounded-md"
+                      >
+                        {link.label}
+                      </a>
+                    </SheetClose>
+                  ))}
+                  <SheetClose asChild>
+                    <Button asChild className="m-4">
+                      <a href="#contact">Contact</a>
+                    </Button>
                   </SheetClose>
-                ))}
-                <SheetClose asChild>
-                  <Button asChild>
-                    <a href="#contact">Contact</a>
-                  </Button>
-                </SheetClose>
-              </div>
-            </SheetContent>
-          </Sheet>
+                </div>
+              </SheetContent>
+            </Sheet>
 
+          </div>
         </div>
       </header>
 
@@ -183,7 +189,7 @@ export default function Home() {
             <ScrollAnimation className="grid lg:grid-cols-3 gap-12 items-start">
               <div className="lg:col-span-2 space-y-8">
                 <h3 className="text-2xl font-bold tracking-tighter md:text-3xl">My Skills & Expertise</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="space-y-8">
                     {skillCategories.map((category) => (
                         <Card key={category.title} className="text-left bg-background/50 hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
                             <CardHeader className="flex flex-row items-center gap-4 pb-4">
