@@ -62,17 +62,17 @@ export const skillCategories = [
     {
         title: "Development",
         icon: <Lightbulb className="h-6 w-6" />,
-        skills: ["React & Next.js", "Node.js", "JavaScript", "Python", "HTML/CSS", "SQL & NoSQL", "Firebase", "REST APIs"],
+        skills: ["React & Next.js", "Node.js", "JavaScript", "Python", "HTML/CSS", "MySQL", "Supabase", "Firestore"],
     },
     {
         title: "Marketing & Content",
         icon: <BarChart className="h-6 w-6" />,
-        skills: ["Digital Marketing", "Content Creation", "SEO", "Photoshop", "Video Editing", "Social Media Management", "Ad Campaigns"],
+        skills: ["Digital Marketing", "Content Creation", "Canva", "Photoshop", "Video Editing", "Social Media Management", "Ad Campaigns"],
     },
     {
         title: "IT & Support",
         icon: <Server className="h-6 w-6" />,
-        skills: ["Technical Support", "Quality Testing", "Manual Testing", "CRM Tools", "Project Management", "System Audits", "Troubleshooting"],
+        skills: ["Technical Support", "Quality Testing", "Manual Testing", "CRM Tools", "Project Management", "Microsoft Office", "System Audits", "Troubleshooting"],
     },
 ]
 
