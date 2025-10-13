@@ -183,7 +183,7 @@ export default function Home() {
                   
                   <div className="pt-6">
                       <h3 className="text-2xl font-bold tracking-tighter md:text-3xl mb-8">My Skills & Expertise</h3>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                      <div className="grid grid-cols-1 gap-8">
                           {skillCategories.map((category) => (
                               <Card key={category.title} className="text-left bg-background/50 hover:shadow-lg transition-shadow flex-1">
                                   <CardHeader className="flex flex-row items-center gap-4 pb-4">
@@ -233,6 +233,23 @@ export default function Home() {
                           </li>
                         ))}
                       </ul>
+                    </CardContent>
+                  </Card>
+                  <Card className="bg-background/50">
+                    <CardHeader>
+                      <CardTitle>Hobbies</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <div className="flex flex-wrap justify-center gap-4">
+                            {hobbies.map((hobby) => (
+                                <div key={hobby.name} className="flex flex-col items-center gap-2">
+                                    <div className="p-3 bg-primary/10 rounded-full text-primary">
+                                        {hobby.icon}
+                                    </div>
+                                    <span className="text-sm text-muted-foreground">{hobby.name}</span>
+                                </div>
+                            ))}
+                        </div>
                     </CardContent>
                   </Card>
                 </div>
