@@ -169,39 +169,39 @@ export default function Home() {
         <section id="about" className="py-16 md:py-24 bg-card border-y">
           <ScrollAnimation>
             <div className="container">
-              <div className="grid lg:grid-cols-5 gap-12 items-start">
-                <div className="lg:col-span-3 space-y-6">
-                  <div className="flex items-center gap-4">
+              <div className="mb-12">
+                  <div className="flex items-center gap-4 mb-4">
                     <User className="h-8 w-8 text-primary" />
                     <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
                       About Me
                     </h2>
                   </div>
-                  <p className="text-lg text-muted-foreground">
+                  <p className="text-lg text-muted-foreground max-w-4xl">
                     {personalInfo.bio}
                   </p>
-                  
-                  <div className="pt-6">
-                      <h3 className="text-2xl font-bold tracking-tighter md:text-3xl mb-8">My Skills & Expertise</h3>
-                      <div className="grid grid-cols-1 gap-8">
-                          {skillCategories.map((category) => (
-                              <Card key={category.title} className="text-left bg-background/50 hover:shadow-lg transition-shadow flex-1">
-                                  <CardHeader className="flex flex-row items-center gap-4 pb-4">
-                                      <div className="p-3 bg-primary/10 rounded-lg text-primary">
-                                          {category.icon}
-                                      </div>
-                                      <CardTitle className="text-xl">{category.title}</CardTitle>
-                                  </CardHeader>
-                                  <CardContent>
-                                      <div className="flex flex-wrap gap-2">
-                                          {category.skills.map((skill) => (
-                                              <Badge key={skill} variant="secondary">{skill}</Badge>
-                                          ))}
-                                      </div>
-                                  </CardContent>
-                              </Card>
-                          ))}
-                      </div>
+              </div>
+              
+              <div className="grid lg:grid-cols-5 gap-12 items-start">
+                <div className="lg:col-span-3 space-y-6">
+                  <h3 className="text-2xl font-bold tracking-tighter md:text-3xl">My Skills & Expertise</h3>
+                  <div className="grid grid-cols-1 gap-8">
+                      {skillCategories.map((category) => (
+                          <Card key={category.title} className="text-left bg-background/50 hover:shadow-lg transition-shadow flex-1">
+                              <CardHeader className="flex flex-row items-center gap-4 pb-4">
+                                  <div className="p-3 bg-primary/10 rounded-lg text-primary">
+                                      {category.icon}
+                                  </div>
+                                  <CardTitle className="text-xl">{category.title}</CardTitle>
+                              </CardHeader>
+                              <CardContent>
+                                  <div className="flex flex-wrap gap-2">
+                                      {category.skills.map((skill) => (
+                                          <Badge key={skill} variant="secondary">{skill}</Badge>
+                                      ))}
+                                  </div>
+                              </CardContent>
+                          </Card>
+                      ))}
                   </div>
                 </div>
 
