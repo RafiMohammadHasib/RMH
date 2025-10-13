@@ -126,7 +126,7 @@ export default function Home() {
       <main className="flex-1">
         <section id="hero" className="relative w-full h-[80vh] md:h-screen">
           <Image
-            src="https://i.imgur.com/gCFdC3g.jpeg"
+            src="/0149412a-fcb9-4683-8508-4ddb7c17aed6.jpeg"
             alt="A professional portrait of Rafi Mohammad Hasib"
             fill
             className="object-cover"
@@ -180,8 +180,8 @@ export default function Home() {
               </p>
             </ScrollAnimation>
             
-            <div className="grid lg:grid-cols-3 gap-12 items-start">
-                <div className="lg:col-span-2 space-y-8">
+            <div className="grid lg:grid-cols-2 gap-12 items-start">
+                <div className="space-y-8">
                   <ScrollAnimation>
                     <h3 className="text-2xl font-bold tracking-tighter md:text-3xl">My Skills & Expertise</h3>
                     <div className="space-y-8 mt-4">
