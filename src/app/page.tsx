@@ -59,7 +59,6 @@ export default function Home() {
     { href: '#about', label: 'About' },
     { href: '#experience', label: 'Experience' },
     { href: '#education', label: 'Education' },
-    { href: '#hobbies', label: 'Hobbies' },
     { href: '#portfolio', label: 'Portfolio' },
   ];
   
@@ -374,34 +373,6 @@ export default function Home() {
           </ScrollAnimation>
         </section>
 
-        <section id="hobbies" className="py-16 md:py-24">
-          <ScrollAnimation>
-            <div className="container">
-              <div className="mx-auto max-w-4xl text-center mb-12">
-                <div className="flex items-center justify-center gap-4">
-                  <Heart className="h-8 w-8 text-primary" />
-                  <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
-                    Interests & Hobbies
-                  </h2>
-                </div>
-                <p className="mt-4 text-lg text-muted-foreground">
-                  A few of the things I enjoy doing in my free time.
-                </p>
-              </div>
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8 max-w-6xl mx-auto">
-                {hobbies.map((hobby, index) => (
-                  <div key={index} className="flex flex-col items-center gap-4 text-center">
-                    <div className="w-20 h-20 rounded-full bg-card border flex items-center justify-center text-primary">
-                      {hobby.icon}
-                    </div>
-                    <p className="font-semibold text-foreground">{hobby.name}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </ScrollAnimation>
-        </section>
-
         <section id="portfolio" className="py-16 md:py-24 bg-card border-y">
            <ScrollAnimation>
             <div className="container">
@@ -478,3 +449,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
