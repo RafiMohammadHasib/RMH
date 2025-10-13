@@ -16,6 +16,7 @@ import { Badge } from "@/components/ui/badge";
 import { Github, Star, GitFork, Eye, Loader2, ArrowRight } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
+import { generateProjectDescription } from "@/ai/flows/generate-project-description";
 
 interface Repo {
   id: number;
@@ -47,7 +48,27 @@ export default function GitHubProjects() {
         throw new Error("GitHub user not found or API rate limit exceeded.");
       }
       const data: Repo[] = await response.json();
-      setRepos(data.filter(repo => !repo.private));
+      
+      const reposWithDescriptions = await Promise.all(
+        data.filter(repo => !repo.private).map(async (repo) => {
+          if (!repo.description) {
+            try {
+              const result = await generateProjectDescription({
+                projectName: repo.name,
+                existingDescription: repo.description,
+              });
+              repo.description = result.description;
+            } catch (aiError) {
+              console.error("AI description generation failed:", aiError);
+              // Proceed with an empty description if AI fails
+            }
+          }
+          return repo;
+        })
+      );
+
+      setRepos(reposWithDescriptions);
+
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : "An unknown error occurred.";
       setError(errorMessage);
@@ -111,21 +132,28 @@ export default function GitHubProjects() {
                       </CardTitle>
                   </CardHeader>
                   <CardContent className="flex-grow space-y-4">
-                    <p className="text-sm text-muted-foreground line-clamp-2">{repo.description || "No description available."}</p>
+                    <p className="text-sm text-muted-foreground line-clamp-2 h-10">{repo.description || "No description available."}</p>
                      <div className="flex flex-wrap gap-2">
                       {repo.language && <Badge variant="secondary">{repo.language}</Badge>}
                       {repo.topics.slice(0, 2).map(topic => <Badge key={topic} variant="outline">{topic}</Badge>)}
                     </div>
                   </CardContent>
-                  <CardFooter className="justify-between">
-                    <Button asChild>
+                  <CardFooter className="justify-between items-center bg-muted/50 p-4">
+                    <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                        <div className="flex items-center gap-1">
+                          <Star className="w-4 h-4" />
+                          <span>{repo.stargazers_count}</span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <GitFork className="w-4 h-4" />
+                          <span>{repo.forks_count}</span>
+                        </div>
+                    </div>
+                    <Button asChild size="sm">
                       <a href={repo.html_url} target="_blank" rel="noopener noreferrer">
-                        View Project <ArrowRight className="ml-2 h-4 w-4" />
+                        View <ArrowRight className="ml-2 h-4 w-4" />
                       </a>
                     </Button>
-                     <a href={repo.html_url} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground">
-                        <Github className="h-6 w-6" />
-                      </a>
                   </CardFooter>
                 </Card>
             );
