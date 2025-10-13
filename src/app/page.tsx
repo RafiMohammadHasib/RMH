@@ -203,6 +203,23 @@ export default function Home() {
                           </Card>
                       ))}
                   </div>
+                   <Card className="bg-background/50">
+                    <CardHeader>
+                      <CardTitle>Hobbies</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <div className="flex flex-wrap justify-center gap-4">
+                            {hobbies.map((hobby) => (
+                                <div key={hobby.name} className="flex flex-col items-center gap-2">
+                                    <div className="p-3 bg-primary/10 rounded-full text-primary">
+                                        {hobby.icon}
+                                    </div>
+                                    <span className="text-sm text-muted-foreground">{hobby.name}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </CardContent>
+                  </Card>
                 </div>
 
                 <div className="lg:col-span-2 space-y-8">
@@ -233,23 +250,6 @@ export default function Home() {
                           </li>
                         ))}
                       </ul>
-                    </CardContent>
-                  </Card>
-                  <Card className="bg-background/50">
-                    <CardHeader>
-                      <CardTitle>Hobbies</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <div className="flex flex-wrap justify-center gap-4">
-                            {hobbies.map((hobby) => (
-                                <div key={hobby.name} className="flex flex-col items-center gap-2">
-                                    <div className="p-3 bg-primary/10 rounded-full text-primary">
-                                        {hobby.icon}
-                                    </div>
-                                    <span className="text-sm text-muted-foreground">{hobby.name}</span>
-                                </div>
-                            ))}
-                        </div>
                     </CardContent>
                   </Card>
                 </div>
