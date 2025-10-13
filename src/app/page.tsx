@@ -181,7 +181,7 @@ export default function Home() {
                     {personalInfo.bio}
                   </p>
                   
-                  <div className="mt-12">
+                  <div className="pt-6">
                       <h3 className="text-2xl font-bold tracking-tighter md:text-3xl mb-8">My Skills & Expertise</h3>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                           {skillCategories.map((category) => (
@@ -449,5 +449,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
