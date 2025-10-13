@@ -26,6 +26,7 @@ interface Repo {
   forks_count: number;
   language: string;
   private: boolean;
+  topics: string[];
 }
 
 const DEFAULT_GITHUB_USER = 'RafiMohammadHasib';
@@ -94,31 +95,37 @@ export default function GitHubProjects() {
           {repos.map((repo, index) => {
             const placeholder = PlaceHolderImages[index % PlaceHolderImages.length];
             return (
-              <Card key={repo.id} className="flex flex-col overflow-hidden group">
+              <Card key={repo.id} className="flex flex-col overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-xl">
                   <div className="relative h-48 w-full overflow-hidden">
                     <Image
                       src={placeholder.imageUrl}
                       alt={repo.name}
                       fill
-                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      className="object-cover"
                       data-ai-hint={placeholder.imageHint}
                     />
                   </div>
                   <CardHeader>
                       <CardTitle className="text-xl">
-                        {repo.name}
+                        {repo.name.replace(/-/g, ' ').replace(/_/g, ' ')}
                       </CardTitle>
-                      {repo.language && <Badge variant="secondary" className="w-fit">{repo.language}</Badge>}
                   </CardHeader>
-                  <CardContent className="flex-grow">
+                  <CardContent className="flex-grow space-y-4">
                     <p className="text-sm text-muted-foreground line-clamp-2">{repo.description || "No description available."}</p>
+                     <div className="flex flex-wrap gap-2">
+                      {repo.language && <Badge variant="secondary">{repo.language}</Badge>}
+                      {repo.topics.slice(0, 2).map(topic => <Badge key={topic} variant="outline">{topic}</Badge>)}
+                    </div>
                   </CardContent>
-                  <CardFooter>
-                    <Button asChild variant="ghost" className="p-0 h-auto">
+                  <CardFooter className="justify-between">
+                    <Button asChild>
                       <a href={repo.html_url} target="_blank" rel="noopener noreferrer">
                         View Project <ArrowRight className="ml-2 h-4 w-4" />
                       </a>
                     </Button>
+                     <a href={repo.html_url} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground">
+                        <Github className="h-6 w-6" />
+                      </a>
                   </CardFooter>
                 </Card>
             );
