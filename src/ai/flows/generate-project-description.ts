@@ -13,7 +13,7 @@ import {z} from 'genkit';
 
 const GenerateProjectDescriptionInputSchema = z.object({
   projectName: z.string().describe('The name of the project repository.'),
-  existingDescription: z.string().optional().describe('The existing description from the repository, if available.'),
+  existingDescription: z.string().optional().nullable().describe('The existing description from the repository, if available.'),
 });
 export type GenerateProjectDescriptionInput = z.infer<typeof GenerateProjectDescriptionInputSchema>;
 
