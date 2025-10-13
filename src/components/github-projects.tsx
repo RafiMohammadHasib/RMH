@@ -16,7 +16,7 @@ import { Badge } from "@/components/ui/badge";
 import { Github, Star, GitFork, Eye, Loader2, ArrowRight } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
-import { generateProjectDescription } from "@/ai/flows/generate-project-description";
+
 
 interface Repo {
   id: number;

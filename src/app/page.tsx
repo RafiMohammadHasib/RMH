@@ -175,7 +175,7 @@ export default function Home() {
                     About Me
                   </h2>
                 </div>
-                <p className="text-lg text-muted-foreground max-w-4xl">
+                <p className="text-lg text-muted-foreground max-w-5xl">
                   {personalInfo.bio}
                 </p>
             </ScrollAnimation>
@@ -185,7 +185,7 @@ export default function Home() {
                 <h3 className="text-2xl font-bold tracking-tighter md:text-3xl">My Skills & Expertise</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {skillCategories.map((category) => (
-                        <Card key={category.title} className="text-left bg-background/50 hover:shadow-lg transition-shadow">
+                        <Card key={category.title} className="text-left bg-background/50 hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
                             <CardHeader className="flex flex-row items-center gap-4 pb-4">
                                 <div className="p-3 bg-primary/10 rounded-lg text-primary">
                                     {category.icon}
@@ -208,7 +208,7 @@ export default function Home() {
                 <h3 className="text-2xl font-bold tracking-tighter">Quick Facts</h3>
                 <div className="space-y-6">
                   {quickFacts.map((fact) => (
-                    <Card key={fact.label} className="bg-background/50">
+                    <Card key={fact.label} className="bg-background/50 hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
                       <CardContent className="p-6 flex flex-col items-center text-center gap-2">
                         <div className="p-3 bg-primary/10 rounded-full text-primary mb-2">
                           {fact.icon}
@@ -219,7 +219,7 @@ export default function Home() {
                     </Card>
                   ))}
                 </div>
-                <Card className="bg-background/50">
+                <Card className="bg-background/50 hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
                   <CardHeader>
                     <CardTitle>Languages</CardTitle>
                   </CardHeader>
@@ -234,7 +234,7 @@ export default function Home() {
                     </ul>
                   </CardContent>
                 </Card>
-                 <Card className="bg-background/50">
+                 <Card className="bg-background/50 hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
                   <CardHeader>
                     <CardTitle>Hobbies</CardTitle>
                   </CardHeader>
