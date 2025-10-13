@@ -1,3 +1,4 @@
+
 import { Compass, Gamepad2, Tv, Plane, TrendingUp, Briefcase, Lightbulb, BarChart, Server, Award, Heart, BookOpen, UserCheck, Languages, BrainCircuit, Users, Handshake } from 'lucide-react';
 import type { ReactElement } from 'react';
 
@@ -57,22 +58,22 @@ export const skillCategories = [
     {
         title: "Technical Skills",
         icon: <Lightbulb className="h-6 w-6" />,
-        skills: ["C", "Python", "HTML", "CSS", "JavaScript", "MySQL", "Supabase", "Firestore (NoSQL)", "Manual Testing & QA", "Git & GitHub", "Vibe Coding"],
+        skills: ["JavaScript", "Python", "C", "HTML", "CSS", "MySQL", "Supabase", "Firestore (NoSQL)", "Manual Testing & QA", "Git & GitHub", "Technical Support"],
     },
     {
         title: "Tools & Platforms",
         icon: <Server className="h-6 w-6" />,
-        skills: ["Canva", "Photoshop", "CapCut (Video Editing)", "Visual Studio Code", "Cursor", "Microsoft Office", "Windows", "Linux", "macOS"],
+        skills: ["React & Next.js", "Node.js", "Canva", "Photoshop", "CapCut (Video Editing)", "Visual Studio Code", "Microsoft Office", "Windows", "Linux", "macOS"],
     },
     {
         title: "Business & Marketing",
         icon: <BarChart className="h-6 w-6" />,
-        skills: ["Digital Marketing", "Corporate Sales", "CRM (HubSpot)", "IT Consultation", "Technical Analysis"],
+        skills: ["Business Development", "Software Sales", "Digital Marketing", "Corporate Sales", "CRM (HubSpot)", "IT Consultation", "Content Creation", "Technical Analysis"],
     },
     {
         title: "Soft Skills",
         icon: <Users className="h-6 w-6" />,
-        skills: ["Client Communication", "Strategic Thinking", "Self-Motivated", "Adaptable", "Reliable", "Team-Oriented"],
+        skills: ["Client Communication", "Client Relationship Management", "Project Management", "Strategic Thinking", "Self-Motivated", "Adaptable", "Team-Oriented", "Reliable"],
     },
 ]
 
