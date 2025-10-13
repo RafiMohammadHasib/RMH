@@ -8,6 +8,8 @@ import {
   education,
   hobbies,
   skillCategories,
+  quickFacts,
+  languages,
 } from '@/lib/data';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -26,6 +28,8 @@ import {
   TrendingUp,
   MapPin,
   Calendar,
+  Award,
+  BookOpen,
 } from 'lucide-react';
 import GitHubProjects from '@/components/github-projects';
 import { ScrollAnimation } from '@/components/scroll-animation';
@@ -164,47 +168,95 @@ export default function Home() {
         </section>
 
         <section id="about" className="py-16 md:py-24 bg-card border-y">
-           <ScrollAnimation>
-             <div className="container">
-                <div className="grid md:grid-cols-5 gap-10 items-center mb-12">
-                  <div className="md:col-span-5 space-y-6 text-center">
-                     <div className="flex items-center justify-center gap-4">
-                      <User className="h-8 w-8 text-primary" />
-                      <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
-                        About Me
-                      </h2>
-                    </div>
-                    <p className="text-lg text-muted-foreground max-w-4xl mx-auto">
-                      {personalInfo.bio}
-                    </p>
+          <ScrollAnimation>
+            <div className="container">
+              <div className="grid lg:grid-cols-3 gap-12 items-start">
+                <div className="lg:col-span-2 space-y-6">
+                  <div className="flex items-center gap-4">
+                    <User className="h-8 w-8 text-primary" />
+                    <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
+                      About Me
+                    </h2>
+                  </div>
+                  <p className="text-lg text-muted-foreground">
+                    {personalInfo.bio}
+                  </p>
+                  
+                  <div className="mt-12">
+                      <h3 className="text-2xl font-bold tracking-tighter md:text-3xl mb-8">My Skills & Expertise</h3>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                          {skillCategories.map((category) => (
+                              <Card key={category.title} className="text-left bg-background/50 hover:shadow-lg transition-shadow">
+                                  <CardHeader className="flex flex-row items-center gap-4 pb-4">
+                                      <div className="p-2 bg-primary/10 rounded-lg text-primary">
+                                          {category.icon}
+                                      </div>
+                                      <CardTitle className="text-xl">{category.title}</CardTitle>
+                                  </CardHeader>
+                                  <CardContent>
+                                      <div className="flex flex-wrap gap-2">
+                                          {category.skills.map((skill) => (
+                                              <Badge key={skill} variant="secondary">{skill}</Badge>
+                                          ))}
+                                      </div>
+                                  </CardContent>
+                              </Card>
+                          ))}
+                      </div>
                   </div>
                 </div>
 
-                 <div className="mx-auto max-w-6xl text-center mb-12">
-                    <h3 className="text-2xl font-bold tracking-tighter md:text-3xl mb-10">My Skills & Expertise</h3>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                        {skillCategories.map((category) => (
-                            <Card key={category.title} className="text-left bg-background/50 hover:shadow-lg transition-shadow">
-                                <CardHeader className="flex flex-row items-center gap-4 pb-4">
-                                    <div className="p-2 bg-primary/10 rounded-lg text-primary">
-                                        {category.icon}
-                                    </div>
-                                    <CardTitle className="text-xl">{category.title}</CardTitle>
-                                </CardHeader>
-                                <CardContent>
-                                    <div className="flex flex-wrap gap-2">
-                                        {category.skills.map((skill) => (
-                                            <Badge key={skill} variant="secondary">{skill}</Badge>
-                                        ))}
-                                    </div>
-                                </CardContent>
-                            </Card>
+                <div className="space-y-8">
+                  <h3 className="text-2xl font-bold tracking-tighter">Quick Facts</h3>
+                  <div className="space-y-6">
+                    {quickFacts.map((fact) => (
+                      <Card key={fact.label} className="bg-background/50">
+                        <CardContent className="p-6 flex flex-col items-center text-center gap-2">
+                          <div className="p-3 bg-primary/10 rounded-full text-primary mb-2">
+                            {fact.icon}
+                          </div>
+                          <p className="text-3xl font-bold text-primary">{fact.value}</p>
+                          <p className="text-muted-foreground">{fact.label}</p>
+                        </CardContent>
+                      </Card>
+                    ))}
+                  </div>
+                  <Card className="bg-background/50">
+                    <CardHeader>
+                      <CardTitle>Languages</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <ul className="space-y-3">
+                        {languages.map(lang => (
+                          <li key={lang.name} className="flex justify-between items-center">
+                            <span>{lang.name}</span>
+                            <span className="text-primary font-semibold">{lang.level}</span>
+                          </li>
                         ))}
-                    </div>
-                 </div>
+                      </ul>
+                    </CardContent>
+                  </Card>
+                  <Card className="bg-background/50">
+                    <CardHeader>
+                      <CardTitle>Interests</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                       <ul className="space-y-3">
+                        {hobbies.map(hobby => (
+                          <li key={hobby.name} className="flex items-center gap-3">
+                            <div className="text-primary">{hobby.icon}</div>
+                            <span>{hobby.name}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                  </Card>
+                </div>
               </div>
+            </div>
           </ScrollAnimation>
         </section>
+
 
         <section id="experience" className="py-16 md:py-24">
           <div className="container">

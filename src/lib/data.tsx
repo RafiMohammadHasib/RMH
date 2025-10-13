@@ -1,8 +1,8 @@
-import { Compass, Gamepad2, Tv, Plane, TrendingUp, Briefcase, Lightbulb, BarChart, Server } from 'lucide-react';
+import { Compass, Gamepad2, Tv, Plane, TrendingUp, Briefcase, Lightbulb, BarChart, Server, Award, Heart, BookOpen, UserCheck, Languages } from 'lucide-react';
 import type { ReactElement } from 'react';
 
 const BilliardIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="12" r="10" fill="black" />
         <circle cx="12" cy="12" r="3" fill="white" />
         <text x="12" y="14.5" fill="black" fontSize="4" textAnchor="middle" fontWeight="bold">8</text>
@@ -10,7 +10,7 @@ const BilliardIcon = () => (
 );
 
 const CricketIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12.15 12.15a2.08 2.08 0 0 0-2.3,0L2.1,19.9a2.08 2.08 0 0 0,0,2.3l.3.3a2.08 2.08 0 0 0,2.3,0,l7.75-7.75" />
         <path d="m15 5-3 3" />
         <path d="M22 2l-3.5 3.5" />
@@ -186,12 +186,12 @@ type Hobby = {
 };
 
 export const hobbies: Hobby[] = [
-    { name: "Exploring", icon: <Compass size={32} /> },
-    { name: "Gaming", icon: <Gamepad2 size={32} /> },
+    { name: "Exploring", icon: <Compass size={24} /> },
+    { name: "Gaming", icon: <Gamepad2 size={24} /> },
     { name: "Billiard", icon: <BilliardIcon /> },
     { name: "Cricket", icon: <CricketIcon /> },
-    { name: "Movies & TV", icon: <Tv size={32} /> },
-    { name: "Travel & Food", icon: <Plane size={32} /> }
+    { name: "Movies & TV", icon: <Tv size={24} /> },
+    { name: "Travel & Food", icon: <Plane size={24} /> }
 ];
 
 
@@ -200,3 +200,36 @@ export const socialLinks = {
   linkedin: "https://linkedin.com/in/rafimohammadhasib",
   whatsapp: "https://wa.me/8801521112363"
 }
+
+export const quickFacts = [
+  {
+    value: "2+",
+    label: "Years of Experience",
+    icon: <Award size={24} />
+  },
+  {
+    value: "10+",
+    label: "Projects Completed",
+    icon: <BookOpen size={24} />
+  },
+  {
+    value: "25+",
+    label: "Technologies Mastered",
+    icon: <UserCheck size={24} />
+  }
+];
+
+export const languages = [
+  {
+    name: "English",
+    level: "Professional"
+  },
+  {
+    name: "Bengali",
+    level: "Native"
+  },
+  {
+    name: "Hindi",
+    level: "Conversational"
+  }
+];
