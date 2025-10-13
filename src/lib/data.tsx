@@ -1,4 +1,4 @@
-import { Compass, Gamepad2, Tv, Plane, TrendingUp, Briefcase, Lightbulb, BarChart, Server, Award, Heart, BookOpen, UserCheck, Languages } from 'lucide-react';
+import { Compass, Gamepad2, Tv, Plane, TrendingUp, Briefcase, Lightbulb, BarChart, Server, Award, Heart, BookOpen, UserCheck, Languages, BrainCircuit, Users, Handshake } from 'lucide-react';
 import type { ReactElement } from 'react';
 
 const BilliardIcon = () => (
@@ -55,24 +55,24 @@ export const skills = [
 
 export const skillCategories = [
     {
-        title: "Business & Sales",
-        icon: <Briefcase className="h-6 w-6" />,
-        skills: ["Business Development", "Software Sales", "Client Communication", "Corporate Sales", "IT Consultation", "Lead Generation", "Negotiation"],
-    },
-    {
-        title: "Development",
+        title: "Technical Skills",
         icon: <Lightbulb className="h-6 w-6" />,
-        skills: ["React & Next.js", "Node.js", "JavaScript", "Python", "HTML/CSS", "MySQL", "Supabase", "Firestore"],
+        skills: ["C", "Python", "HTML", "CSS", "JavaScript", "MySQL", "Supabase", "Firestore (NoSQL)", "Manual Testing & QA", "Git & GitHub", "Vibe Coding"],
     },
     {
-        title: "Marketing & Content",
-        icon: <BarChart className="h-6 w-6" />,
-        skills: ["Digital Marketing", "Content Creation", "Canva", "Photoshop", "Video Editing", "Social Media Management", "Ad Campaigns"],
-    },
-    {
-        title: "IT & Support",
+        title: "Tools & Platforms",
         icon: <Server className="h-6 w-6" />,
-        skills: ["Technical Support", "Quality Testing", "Manual Testing", "CRM Tools", "Project Management", "Microsoft Office", "System Audits", "Troubleshooting"],
+        skills: ["Canva", "Photoshop", "CapCut (Video Editing)", "Visual Studio Code", "Cursor", "Microsoft Office", "Windows", "Linux", "macOS"],
+    },
+    {
+        title: "Business & Marketing",
+        icon: <BarChart className="h-6 w-6" />,
+        skills: ["Digital Marketing", "Corporate Sales", "CRM (HubSpot)", "IT Consultation", "Technical Analysis"],
+    },
+    {
+        title: "Soft Skills",
+        icon: <Users className="h-6 w-6" />,
+        skills: ["Client Communication", "Strategic Thinking", "Self-Motivated", "Adaptable", "Reliable", "Team-Oriented"],
     },
 ]
 
