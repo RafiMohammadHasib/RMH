@@ -133,17 +133,17 @@ export default function Home() {
             priority
             data-ai-hint="professional portrait"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
-          <div className="absolute inset-0 flex items-center justify-center text-center text-white">
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
+          <div className="container relative h-full flex items-center text-white">
             <ScrollAnimation>
-              <div className="space-y-4">
+              <div className="max-w-2xl space-y-4">
                 <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl/none text-shadow-lg">
                   Hello, I'm {personalInfo.name}
                 </h1>
-                <p className="max-w-[600px] mx-auto text-lg md:text-xl text-white/90">
+                <p className="text-lg md:text-xl text-white/90">
                   {personalInfo.title}
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4 mt-6 justify-center">
+                <div className="flex flex-col sm:flex-row gap-4 pt-4">
                   <Button asChild size="lg" className="bg-white text-black hover:bg-white/90">
                     <a href={`mailto:${personalInfo.email}`}>
                       <Mail className="mr-2 h-5 w-5" />
@@ -183,8 +183,8 @@ export default function Home() {
             <div className="grid lg:grid-cols-2 gap-12 items-start">
                 <div className="space-y-8">
                   <ScrollAnimation>
-                    <h3 className="text-2xl font-bold tracking-tighter md:text-3xl">My Skills & Expertise</h3>
-                    <div className="space-y-8 mt-4">
+                    <h3 className="text-2xl font-bold tracking-tighter md:text-3xl mb-4">My Skills & Expertise</h3>
+                    <div className="space-y-8">
                         {skillCategories.map((category) => (
                             <Card key={category.title} className="text-left bg-background/50 hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
                                 <CardHeader className="flex flex-row items-center gap-4 pb-4">
@@ -204,25 +204,6 @@ export default function Home() {
                         ))}
                     </div>
                   </ScrollAnimation>
-                   <ScrollAnimation>
-                      <Card className="bg-background/50 hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
-                        <CardHeader>
-                          <CardTitle>Hobbies</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            <div className="flex flex-wrap justify-center gap-4">
-                                {hobbies.map((hobby) => (
-                                    <div key={hobby.name} className="flex flex-col items-center gap-2">
-                                        <div className="p-3 bg-primary/10 rounded-full text-primary">
-                                            {hobby.icon}
-                                        </div>
-                                        <span className="text-sm text-muted-foreground">{hobby.name}</span>
-                                    </div>
-                                ))}
-                            </div>
-                        </CardContent>
-                      </Card>
-                    </ScrollAnimation>
                 </div>
 
                 <div className="space-y-8">
@@ -259,6 +240,25 @@ export default function Home() {
                       </CardContent>
                     </Card>
                   </ScrollAnimation>
+                   <ScrollAnimation>
+                      <Card className="bg-background/50 hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
+                        <CardHeader>
+                          <CardTitle>Hobbies</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <div className="flex flex-wrap justify-center gap-4">
+                                {hobbies.map((hobby) => (
+                                    <div key={hobby.name} className="flex flex-col items-center gap-2">
+                                        <div className="p-3 bg-primary/10 rounded-full text-primary">
+                                            {hobby.icon}
+                                        </div>
+                                        <span className="text-sm text-muted-foreground">{hobby.name}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </CardContent>
+                      </Card>
+                    </ScrollAnimation>
                 </div>
             </div>
           </div>
