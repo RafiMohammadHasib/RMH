@@ -167,101 +167,99 @@ export default function Home() {
         </section>
 
         <section id="about" className="py-16 md:py-24 bg-card border-y">
-          <ScrollAnimation>
-            <div className="container">
-              <div className="mb-12">
-                  <div className="flex items-center gap-4 mb-4">
-                    <User className="h-8 w-8 text-primary" />
-                    <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
-                      About Me
-                    </h2>
-                  </div>
-                  <p className="text-lg text-muted-foreground max-w-4xl">
-                    {personalInfo.bio}
-                  </p>
-              </div>
-              
-              <div className="grid lg:grid-cols-5 gap-12 items-start">
-                <div className="lg:col-span-3 space-y-8">
-                  <h3 className="text-2xl font-bold tracking-tighter md:text-3xl">My Skills & Expertise</h3>
-                  <div className="grid grid-cols-1 gap-8">
-                      {skillCategories.map((category) => (
-                          <Card key={category.title} className="text-left bg-background/50 hover:shadow-lg transition-shadow">
-                              <CardHeader className="flex flex-row items-center gap-4 pb-4">
-                                  <div className="p-3 bg-primary/10 rounded-lg text-primary">
-                                      {category.icon}
-                                  </div>
-                                  <CardTitle className="text-xl">{category.title}</CardTitle>
-                              </CardHeader>
-                              <CardContent>
-                                  <div className="flex flex-wrap gap-2">
-                                      {category.skills.map((skill) => (
-                                          <Badge key={skill} variant="secondary">{skill}</Badge>
-                                      ))}
-                                  </div>
-                              </CardContent>
-                          </Card>
-                      ))}
-                  </div>
-                   <Card className="bg-background/50">
-                    <CardHeader>
-                      <CardTitle>Hobbies</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <div className="flex flex-wrap justify-center gap-4">
-                            {hobbies.map((hobby) => (
-                                <div key={hobby.name} className="flex flex-col items-center gap-2">
-                                    <div className="p-3 bg-primary/10 rounded-full text-primary">
-                                        {hobby.icon}
-                                    </div>
-                                    <span className="text-sm text-muted-foreground">{hobby.name}</span>
+          <div className="container">
+            <ScrollAnimation className="mb-12">
+                <div className="flex items-center gap-4 mb-4">
+                  <User className="h-8 w-8 text-primary" />
+                  <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
+                    About Me
+                  </h2>
+                </div>
+                <p className="text-lg text-muted-foreground max-w-4xl">
+                  {personalInfo.bio}
+                </p>
+            </ScrollAnimation>
+            
+            <ScrollAnimation className="grid lg:grid-cols-3 gap-12 items-start">
+              <div className="lg:col-span-2 space-y-8">
+                <h3 className="text-2xl font-bold tracking-tighter md:text-3xl">My Skills & Expertise</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    {skillCategories.map((category) => (
+                        <Card key={category.title} className="text-left bg-background/50 hover:shadow-lg transition-shadow">
+                            <CardHeader className="flex flex-row items-center gap-4 pb-4">
+                                <div className="p-3 bg-primary/10 rounded-lg text-primary">
+                                    {category.icon}
                                 </div>
-                            ))}
-                        </div>
-                    </CardContent>
-                  </Card>
-                </div>
-
-                <div className="lg:col-span-2 space-y-8">
-                  <h3 className="text-2xl font-bold tracking-tighter">Quick Facts</h3>
-                  <div className="space-y-6">
-                    {quickFacts.map((fact) => (
-                      <Card key={fact.label} className="bg-background/50">
-                        <CardContent className="p-6 flex flex-col items-center text-center gap-2">
-                          <div className="p-3 bg-primary/10 rounded-full text-primary mb-2">
-                            {fact.icon}
-                          </div>
-                          <p className="text-3xl font-bold text-primary">{fact.value}</p>
-                          <p className="text-muted-foreground">{fact.label}</p>
-                        </CardContent>
-                      </Card>
+                                <CardTitle className="text-xl">{category.title}</CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <div className="flex flex-wrap gap-2">
+                                    {category.skills.map((skill) => (
+                                        <Badge key={skill} variant="secondary">{skill}</Badge>
+                                    ))}
+                                </div>
+                            </CardContent>
+                        </Card>
                     ))}
-                  </div>
-                  <Card className="bg-background/50">
-                    <CardHeader>
-                      <CardTitle>Languages</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <ul className="space-y-3">
-                        {languages.map(lang => (
-                          <li key={lang.name} className="flex justify-between items-center">
-                            <span>{lang.name}</span>
-                            <span className="text-primary font-semibold">{lang.level}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </CardContent>
-                  </Card>
                 </div>
               </div>
-            </div>
-          </ScrollAnimation>
+
+              <div className="space-y-8">
+                <h3 className="text-2xl font-bold tracking-tighter">Quick Facts</h3>
+                <div className="space-y-6">
+                  {quickFacts.map((fact) => (
+                    <Card key={fact.label} className="bg-background/50">
+                      <CardContent className="p-6 flex flex-col items-center text-center gap-2">
+                        <div className="p-3 bg-primary/10 rounded-full text-primary mb-2">
+                          {fact.icon}
+                        </div>
+                        <p className="text-3xl font-bold text-primary">{fact.value}</p>
+                        <p className="text-muted-foreground">{fact.label}</p>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+                <Card className="bg-background/50">
+                  <CardHeader>
+                    <CardTitle>Languages</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="space-y-3">
+                      {languages.map(lang => (
+                        <li key={lang.name} className="flex justify-between items-center">
+                          <span>{lang.name}</span>
+                          <span className="text-primary font-semibold">{lang.level}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+                 <Card className="bg-background/50">
+                  <CardHeader>
+                    <CardTitle>Hobbies</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                      <div className="flex flex-wrap justify-center gap-4">
+                          {hobbies.map((hobby) => (
+                              <div key={hobby.name} className="flex flex-col items-center gap-2">
+                                  <div className="p-3 bg-primary/10 rounded-full text-primary">
+                                      {hobby.icon}
+                                  </div>
+                                  <span className="text-sm text-muted-foreground">{hobby.name}</span>
+                              </div>
+                          ))}
+                      </div>
+                  </CardContent>
+                </Card>
+              </div>
+            </ScrollAnimation>
+          </div>
         </section>
 
 
         <section id="experience" className="py-16 md:py-24">
           <div className="container">
-            <div className="mx-auto max-w-4xl text-center mb-12">
+            <ScrollAnimation className="mx-auto max-w-4xl text-center mb-12">
               <div className="flex items-center justify-center gap-4">
                 <Briefcase className="h-8 w-8 text-primary" />
                 <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
@@ -271,7 +269,7 @@ export default function Home() {
               <p className="mt-4 text-lg text-muted-foreground">
                 A timeline of my professional experience and growth.
               </p>
-            </div>
+            </ScrollAnimation>
             <div className="relative max-w-5xl mx-auto">
               <div className="absolute left-3 top-0 bottom-0 w-0.5 bg-border hidden md:block"></div>
               {experiences.map((exp, index) => (
@@ -336,7 +334,7 @@ export default function Home() {
 
         <section id="education" className="py-16 md:py-24 bg-card border-y">
           <div className="container">
-            <div className="mx-auto max-w-4xl text-center mb-12">
+            <ScrollAnimation className="mx-auto max-w-4xl text-center mb-12">
               <div className="flex items-center justify-center gap-4">
                 <GraduationCap className="h-8 w-8 text-primary" />
                 <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
@@ -346,7 +344,7 @@ export default function Home() {
               <p className="mt-4 text-lg text-muted-foreground">
                 My educational milestones and key projects.
               </p>
-            </div>
+            </ScrollAnimation>
             <div className="relative max-w-5xl mx-auto">
               <div className="absolute left-3 top-0 bottom-0 w-0.5 bg-border hidden md:block"></div>
               {education.map((edu, index) => (
@@ -388,7 +386,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="portfolio" className="py-16 md:py-24 bg-card border-y">
+        <section id="portfolio" className="py-16 md:py-24">
            <ScrollAnimation>
             <div className="container">
               <div className="mx-auto max-w-4xl text-center mb-12">
@@ -406,7 +404,7 @@ export default function Home() {
 
         <section
           id="contact"
-          className="py-16 md:py-24 text-center border-t"
+          className="py-16 md:py-24 text-center border-t bg-card"
         >
            <ScrollAnimation>
             <div className="container">

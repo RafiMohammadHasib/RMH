@@ -49,23 +49,7 @@ export default function GitHubProjects() {
       }
       const data: Repo[] = await response.json();
       
-      const reposWithDescriptions = await Promise.all(
-        data.filter(repo => !repo.private).map(async (repo) => {
-          if (!repo.description) {
-            try {
-              const result = await generateProjectDescription({
-                projectName: repo.name,
-                existingDescription: repo.description,
-              });
-              repo.description = result.description;
-            } catch (aiError) {
-              console.error("AI description generation failed:", aiError);
-              // Proceed with an empty description if AI fails
-            }
-          }
-          return repo;
-        })
-      );
+      const reposWithDescriptions = data.filter(repo => !repo.private);
 
       setRepos(reposWithDescriptions);
 
@@ -132,7 +116,7 @@ export default function GitHubProjects() {
                       </CardTitle>
                   </CardHeader>
                   <CardContent className="flex-grow space-y-4">
-                    <p className="text-sm text-muted-foreground line-clamp-2 h-10">{repo.description || "No description available."}</p>
+                    <p className="text-sm text-muted-foreground line-clamp-2 h-10">{repo.description || "A project by " + username}</p>
                      <div className="flex flex-wrap gap-2">
                       {repo.language && <Badge variant="secondary">{repo.language}</Badge>}
                       {repo.topics.slice(0, 2).map(topic => <Badge key={topic} variant="outline">{topic}</Badge>)}
