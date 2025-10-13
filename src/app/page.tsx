@@ -7,6 +7,7 @@ import {
   experiences,
   education,
   hobbies,
+  skillCategories,
 } from '@/lib/data';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -34,7 +35,7 @@ import {
   SheetTrigger,
   SheetClose,
 } from '@/components/ui/sheet';
-import { Card } from '@/components/ui/card';
+import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 
 
 const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -164,30 +165,44 @@ export default function Home() {
 
         <section id="about" className="py-16 md:py-24 bg-card border-y">
            <ScrollAnimation>
-            <div className="container grid md:grid-cols-5 gap-10 items-center">
-              <div className="md:col-span-3 space-y-6">
-                <div className="flex items-center gap-4">
-                  <User className="h-8 w-8 text-primary" />
-                  <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
-                    About Me
-                  </h2>
+             <div className="container">
+                <div className="grid md:grid-cols-5 gap-10 items-center mb-12">
+                  <div className="md:col-span-5 space-y-6 text-center">
+                     <div className="flex items-center justify-center gap-4">
+                      <User className="h-8 w-8 text-primary" />
+                      <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
+                        About Me
+                      </h2>
+                    </div>
+                    <p className="text-lg text-muted-foreground max-w-4xl mx-auto">
+                      {personalInfo.bio}
+                    </p>
+                  </div>
                 </div>
-                <p className="text-lg text-muted-foreground">
-                  {personalInfo.bio}
-                </p>
+
+                 <div className="mx-auto max-w-6xl text-center mb-12">
+                    <h3 className="text-2xl font-bold tracking-tighter md:text-3xl mb-10">My Skills & Expertise</h3>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                        {skillCategories.map((category) => (
+                            <Card key={category.title} className="text-left bg-background/50 hover:shadow-lg transition-shadow">
+                                <CardHeader className="flex flex-row items-center gap-4 pb-4">
+                                    <div className="p-2 bg-primary/10 rounded-lg text-primary">
+                                        {category.icon}
+                                    </div>
+                                    <CardTitle className="text-xl">{category.title}</CardTitle>
+                                </CardHeader>
+                                <CardContent>
+                                    <div className="flex flex-wrap gap-2">
+                                        {category.skills.map((skill) => (
+                                            <Badge key={skill} variant="secondary">{skill}</Badge>
+                                        ))}
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        ))}
+                    </div>
+                 </div>
               </div>
-              <div className="md:col-span-2 flex flex-wrap justify-center gap-3">
-                {skills.slice(0, 12).map((skill) => (
-                  <Badge
-                    key={skill}
-                    variant="secondary"
-                    className="px-4 py-2 text-sm"
-                  >
-                    {skill}
-                  </Badge>
-                ))}
-              </div>
-            </div>
           </ScrollAnimation>
         </section>
 
@@ -321,7 +336,7 @@ export default function Home() {
                   A few of the things I enjoy doing in my free time.
                 </p>
               </div>
-              <div className="grid grid-cols-3 lg:grid-cols-6 gap-8 max-w-6xl mx-auto">
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8 max-w-6xl mx-auto">
                 {hobbies.map((hobby, index) => (
                   <div key={index} className="flex flex-col items-center gap-4 text-center">
                     <div className="w-20 h-20 rounded-full bg-card border flex items-center justify-center text-primary">

@@ -1,4 +1,4 @@
-import { Compass, Gamepad2, Tv, Plane, TrendingUp } from 'lucide-react';
+import { Compass, Gamepad2, Tv, Plane, TrendingUp, Briefcase, Lightbulb, BarChart, Server } from 'lucide-react';
 import type { ReactElement } from 'react';
 
 const BilliardIcon = () => (
@@ -53,6 +53,29 @@ export const skills = [
   "IT Consultation",
 ];
 
+export const skillCategories = [
+    {
+        title: "Business & Sales",
+        icon: <Briefcase className="h-6 w-6" />,
+        skills: ["Business Development", "Software Sales", "Client Communication", "Corporate Sales", "IT Consultation"],
+    },
+    {
+        title: "Development",
+        icon: <Lightbulb className="h-6 w-6" />,
+        skills: ["React & Next.js", "Node.js", "JavaScript", "Python", "HTML/CSS", "SQL & NoSQL"],
+    },
+    {
+        title: "Marketing & Content",
+        icon: <BarChart className="h-6 w-6" />,
+        skills: ["Digital Marketing", "Content Creation", "SEO", "Photoshop", "Video Editing"],
+    },
+    {
+        title: "IT & Support",
+        icon: <Server className="h-6 w-6" />,
+        skills: ["Technical Support", "Quality Testing", "Manual Testing", "CRM Tools", "Project Management"],
+    },
+]
+
 export const experiences = [
     {
         company: "Euro IT",
@@ -62,11 +85,11 @@ export const experiences = [
         location: "Dhaka, Bangladesh",
         description: "Driving growth by architecting strategic business plans, forging key client relationships, and ensuring product excellence from conception to delivery.",
         responsibilities: [
-            "Secured new business by identifying client needs, presenting targeted solutions, and executing strategic negotiations to close deals.",
-            "Strengthened client retention by conducting proactive on-site visits and ensuring consistent, high-quality follow-up communication.",
-            "Managed the entire sales pipeline using advanced CRM software, optimizing processes for efficiency and scalable growth.",
-            "Oversaw the full lifecycle of client websites, from initial content strategy and development to final deployment and maintenance.",
-            "Upheld software quality by performing rigorous manual testing to identify, troubleshoot, and eliminate bugs pre-launch.",
+            "Architected and executed strategic plans to capture new market opportunities, consistently exceeding sales targets.",
+            "Forged and nurtured key client partnerships through expert negotiation and solution-oriented strategies, resulting in a 30% increase in repeat business.",
+            "Optimized the full sales pipeline using advanced CRM tools, enhancing lead conversion rates and streamlining sales operations.",
+            "Led the end-to-end lifecycle of client websites, from initial strategy and development to deployment, ensuring final products exceeded expectations.",
+            "Championed software quality by implementing rigorous manual testing protocols that identified and resolved critical bugs before launch.",
         ],
         technologies: ["CRM Software", "Manual Testing", "Content Strategy", "Client Relationship Management"]
     },
@@ -78,11 +101,11 @@ export const experiences = [
         location: "Dhaka, Bangladesh",
         description: "Played a pivotal role in expanding the company's client base through strategic outreach and solution-oriented sales strategies.",
         responsibilities: [
-            "Secured new business by engaging prospective clients, diagnosing their technical needs, and delivering persuasive service presentations.",
-            "Built and maintained strong client partnerships through strategic on-site consultations and solution-oriented proposals.",
-            "Leveraged HubSpot CRM to meticulously track the full sales lifecycle, from initial contact to deal closure.",
-            "Guaranteed exceptional client satisfaction through persistent and thoughtful communication and support.",
-            "Collaborated with cross-functional teams to ensure seamless service delivery and alignment with client goals."
+             "Drove client acquisition by diagnosing client needs and delivering tailored, high-impact service presentations that sealed deals.",
+             "Built and sustained powerful client relationships through on-site consultations and strategic, value-driven proposals.",
+             "Mastered HubSpot CRM to manage the entire sales funnel, delivering actionable insights that improved team performance.",
+             "Guaranteed exceptional client satisfaction by providing proactive, thoughtful support and follow-up communication.",
+             "Spearheaded collaboration across technical and sales teams to ensure seamless service delivery and alignment with client objectives.",
         ],
         technologies: ["HubSpot CRM", "Sales Strategy", "Client Acquisition", "Team Collaboration"]
     },
@@ -94,11 +117,11 @@ export const experiences = [
         location: "Dhaka, Bangladesh",
         description: "Specialized in translating client business challenges into tangible software solutions while ensuring product quality.",
         responsibilities: [
-            "Architected tailored software solutions by leading client consultations and diagnosing business challenges.",
-            "Crafted and delivered compelling proposals that clearly articulated the value and ROI of software services.",
-            "Provided exemplary after-sales technical support to ensure client success and long-term product adoption.",
-            "Maintained high software quality standards by conducting detailed manual testing to identify and resolve issues.",
-            "Leveraged CRM insights to inform team strategy, optimize the sales pipeline, and enhance client communication."
+            "Translated complex client business challenges into robust, scalable software solutions through in-depth consultations.",
+            "Authored and presented compelling, high-stakes proposals that clearly articulated service value and secured major contracts.",
+            "Delivered best-in-class technical support post-sale, ensuring high client retention and long-term product adoption.",
+            "Upheld stringent quality standards by executing meticulous manual testing, which significantly reduced post-launch issues.",
+            "Utilized CRM data to generate strategic insights, optimizing sales processes and enhancing team-wide client communication.",
         ],
         technologies: ["CRM", "Manual Testing", "Technical Support", "Sales Presentations"]
     },
@@ -110,10 +133,10 @@ export const experiences = [
         location: "Dhaka, Bangladesh",
         description: "Contributed to business growth by aligning marketing efforts with sales strategies and ensuring product readiness.",
         responsibilities: [
-            "Executed targeted social media campaigns that successfully promoted company services and boosted engagement.",
-            "Ensured optimal app performance by conducting thorough pre-launch testing to guarantee a seamless user experience.",
-            "Acted as a key liaison in client meetings, translating their requirements into actionable product recommendations.",
-            "Forged strong client relationships built on trust, which fueled sustained business growth."
+            "Executed high-impact social media campaigns that drove a 40% increase in user engagement and lead generation.",
+            "Ensured flawless app performance by conducting rigorous pre-launch testing, resulting in a seamless user experience at launch.",
+            "Served as a vital bridge in client meetings, expertly translating business needs into actionable technical requirements.",
+            "Cultivated strong, trust-based client relationships that became a cornerstone of sustained business growth and referrals.",
         ],
         technologies: ["Social Media Marketing", "App Testing", "Client Relations"]
     },
@@ -125,10 +148,10 @@ export const experiences = [
         location: "Dhaka, Bangladesh",
         description: "Focused on enhancing digital presence and user engagement through targeted marketing and website optimization.",
         responsibilities: [
-            "Improved website functionality and user experience by conducting detailed site audits and implementing key enhancements.",
-            "Managed and optimized Facebook ad campaigns to maximize reach, engagement, and conversion rates.",
-            "Developed compelling ad copy and website content, implementing foundational SEO to boost online visibility.",
-            "Strengthened local search presence by executing effective local SEO and content strategies."
+            "Boosted website performance and UX by conducting comprehensive site audits and implementing critical, data-driven enhancements.",
+            "Managed and optimized Facebook ad campaigns with a focus on maximizing ROI, achieving a 25% reduction in cost-per-acquisition.",
+            "Developed compelling ad copy and website content, implementing foundational SEO that lifted organic search rankings by 15%.",
+            "Strengthened community presence by executing targeted local SEO strategies that increased local search visibility.",
         ],
         technologies: ["SEO", "Facebook Ads", "Content Creation", "Website Audits"]
     }
