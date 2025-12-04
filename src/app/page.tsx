@@ -146,7 +146,7 @@ export default function Home() {
       </header>
 
       <main className="flex-1">
-        <section id="hero" className="w-full py-24 md:py-32 lg:py-40">
+        <section id="hero" className="w-full pt-32 md:pt-40 lg:pt-48">
           <div className="container grid gap-10 lg:grid-cols-2 items-center">
             <ScrollAnimation className="space-y-4">
               <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl/none">
@@ -226,6 +226,25 @@ export default function Home() {
                         ))}
                     </div>
                   </ScrollAnimation>
+                   <ScrollAnimation>
+                      <Card className="bg-background/50 hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
+                        <CardHeader>
+                          <CardTitle>Hobbies</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <div className="flex flex-wrap justify-center gap-4">
+                                {hobbies.map((hobby) => (
+                                    <div key={hobby.name} className="flex flex-col items-center gap-2">
+                                        <div className="p-3 bg-primary/10 rounded-full text-primary">
+                                            {hobby.icon}
+                                        </div>
+                                        <span className="text-sm text-muted-foreground">{hobby.name}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </CardContent>
+                      </Card>
+                    </ScrollAnimation>
                 </div>
 
                 <div className="space-y-8">
@@ -262,25 +281,6 @@ export default function Home() {
                       </CardContent>
                     </Card>
                   </ScrollAnimation>
-                   <ScrollAnimation>
-                      <Card className="bg-background/50 hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
-                        <CardHeader>
-                          <CardTitle>Hobbies</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            <div className="flex flex-wrap justify-center gap-4">
-                                {hobbies.map((hobby) => (
-                                    <div key={hobby.name} className="flex flex-col items-center gap-2">
-                                        <div className="p-3 bg-primary/10 rounded-full text-primary">
-                                            {hobby.icon}
-                                        </div>
-                                        <span className="text-sm text-muted-foreground">{hobby.name}</span>
-                                    </div>
-                                ))}
-                            </div>
-                        </CardContent>
-                      </Card>
-                    </ScrollAnimation>
                 </div>
             </div>
           </div>
