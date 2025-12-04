@@ -124,44 +124,44 @@ export default function Home() {
       </header>
 
       <main className="flex-1">
-        <section id="hero" className="relative w-full h-[80vh] md:h-screen">
-          <Image
-            src="/0149412a-fcb9-4683-8508-4ddb7c17aed6.jpeg"
-            alt="A professional portrait of Rafi Mohammad Hasib"
-            fill
-            className="object-cover"
-            priority
-            data-ai-hint="professional portrait"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
-          <div className="container relative h-full flex items-center text-white">
-            <ScrollAnimation>
-              <div className="max-w-2xl space-y-4">
-                <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl/none text-shadow-lg">
-                  Hello, I'm {personalInfo.name}
-                </h1>
-                <p className="text-lg md:text-xl text-white/90">
-                  {personalInfo.title}
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                  <Button asChild size="lg" className="bg-white text-black hover:bg-white/90">
-                    <a href={`mailto:${personalInfo.email}`}>
-                      <Mail className="mr-2 h-5 w-5" />
-                      Get in Touch
-                    </a>
-                  </Button>
-                  <Button asChild size="lg" variant="secondary" className="bg-white/20 text-white hover:bg-white/30 backdrop-blur-sm">
-                    <a
-                      href="https://drive.google.com/file/d/12bEJeHuBAM1P0kcg8TmGnGBx6o4uoyH-/view"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Download className="mr-2 h-5 w-5" />
-                      My Resume
-                    </a>
-                  </Button>
-                </div>
+        <section id="hero" className="w-full py-24 md:py-32 lg:py-40">
+          <div className="container grid gap-10 lg:grid-cols-2 items-center">
+            <ScrollAnimation className="space-y-4">
+              <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl/none">
+                Hello, I'm {personalInfo.name}
+              </h1>
+              <p className="text-lg md:text-xl text-muted-foreground">
+                {personalInfo.title}
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                <Button asChild size="lg">
+                  <a href={`mailto:${personalInfo.email}`}>
+                    <Mail className="mr-2 h-5 w-5" />
+                    Get in Touch
+                  </a>
+                </Button>
+                <Button asChild size="lg" variant="secondary">
+                  <a
+                    href="https://drive.google.com/file/d/12bEJeHuBAM1P0kcg8TmGnGBx6o4uoyH-/view"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Download className="mr-2 h-5 w-5" />
+                    My Resume
+                  </a>
+                </Button>
               </div>
+            </ScrollAnimation>
+            <ScrollAnimation>
+              <Image
+                src="/0149412a-fcb9-4683-8508-4ddb7c17aed6.jpeg"
+                alt="A professional portrait of Rafi Mohammad Hasib"
+                width={600}
+                height={600}
+                className="rounded-xl object-cover shadow-2xl"
+                priority
+                data-ai-hint="professional portrait"
+              />
             </ScrollAnimation>
           </div>
         </section>
@@ -209,7 +209,7 @@ export default function Home() {
                 <div className="space-y-8">
                   <ScrollAnimation>
                     <h3 className="text-2xl font-bold tracking-tighter">Quick Facts</h3>
-                    <div className="space-y-6 mt-4">
+                    <div className="grid sm:grid-cols-3 gap-6 mt-4">
                       {quickFacts.map((fact) => (
                         <Card key={fact.label} className="bg-background/50 hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
                           <CardContent className="p-6 flex flex-col items-center text-center gap-2">
@@ -217,7 +217,7 @@ export default function Home() {
                               {fact.icon}
                             </div>
                             <p className="text-3xl font-bold text-primary">{fact.value}</p>
-                            <p className="text-muted-foreground">{fact.label}</p>
+                            <p className="text-muted-foreground text-sm">{fact.label}</p>
                           </CardContent>
                         </Card>
                       ))}
