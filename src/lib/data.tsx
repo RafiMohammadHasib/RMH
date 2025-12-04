@@ -88,11 +88,14 @@ export const experiences = [
         responsibilities: [
             "Architected and executed strategic plans to capture new market opportunities, consistently exceeding sales targets.",
             "Forged and nurtured key client partnerships through expert negotiation and solution-oriented strategies, resulting in a 30% increase in repeat business.",
-            "Optimized the full sales pipeline using advanced CRM tools, enhancing lead conversion rates and streamlining sales operations.",
             "Led the end-to-end lifecycle of client websites, from initial strategy and development to deployment, ensuring final products exceeded expectations.",
+            "Engineers custom Enterprise Resource Planning (ERP) software solutions to streamline business operations.",
+            "Develops and delivers professional, modern websites for diverse clients, ensuring high-quality user experiences.",
+            "Organizes and participates in key business meetings to drive strategic goals and foster client relationships.",
+            "Manages the recruitment process by arranging and conducting interviews to build a talented team.",
             "Championed software quality by implementing rigorous manual testing protocols that identified and resolved critical bugs before launch.",
         ],
-        technologies: ["CRM Software", "Manual Testing", "Content Strategy", "Client Relationship Management"]
+        technologies: ["CRM Software", "Manual Testing", "Content Strategy", "Client Relationship Management", "ERP Development"]
     },
     {
         company: "Lnkits Technology",
