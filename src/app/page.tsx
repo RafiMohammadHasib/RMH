@@ -91,7 +91,7 @@ export default function Home() {
           <div className="container flex h-16 items-center justify-between px-4 sm:px-6">
             <Link href="/" className="flex items-center gap-2">
               <Code className="h-6 w-6 text-primary" />
-              <span className="text-xl font-bold hidden sm:inline-block">{personalInfo.name.split(' ')[0]}</span>
+              <span className="text-xl font-bold">{personalInfo.name.split(' ')[0]}</span>
             </Link>
 
             <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
