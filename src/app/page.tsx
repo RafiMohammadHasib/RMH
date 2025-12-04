@@ -8,7 +8,6 @@ import {
   education,
   hobbies,
   skillCategories,
-  quickFacts,
   languages,
 } from '@/lib/data';
 import { Button } from '@/components/ui/button';
@@ -60,6 +59,29 @@ export default function Home() {
     { href: '#experience', label: 'Experience' },
     { href: '#education', label: 'Education' },
     { href: '#portfolio', label: 'Portfolio' },
+  ];
+
+  const startDate = new Date('2022-11-01');
+  const currentDate = new Date();
+  const diffInMonths = (currentDate.getFullYear() - startDate.getFullYear()) * 12 + (currentDate.getMonth() - startDate.getMonth());
+  const yearsOfExperience = (diffInMonths / 12).toFixed(1);
+
+  const quickFacts = [
+    {
+      value: `${yearsOfExperience}+`,
+      label: "Years of Experience",
+      icon: <Award size={24} />
+    },
+    {
+      value: "10+",
+      label: "Projects Completed",
+      icon: <BookOpen size={24} />
+    },
+    {
+      value: "25+",
+      label: "Technologies Mastered",
+      icon: <User size={24} />
+    }
   ];
   
   return (
