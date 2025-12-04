@@ -63,7 +63,7 @@ export const skillCategories = [
     {
         title: "Tools & Platforms",
         icon: <Server className="h-6 w-6" />,
-        skills: ["React & Next.js", "Node.js", "Canva", "Photoshop", "CapCut (Video Editing)", "Visual Studio Code", "Microsoft Office", "Windows", "Linux", "macOS"],
+        skills: ["React & Next.js", "Node.js", "Canva", "Photoshop", "CapCut", "Wondershare Filmora", "Visual Studio Code", "Microsoft Office", "Windows", "Linux", "macOS"],
     },
     {
         title: "Business & Marketing",
