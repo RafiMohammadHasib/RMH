@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import {
   Card,
@@ -13,15 +13,16 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
-import { Github, Star, GitFork, Eye, Loader2, ArrowRight } from "lucide-react";
+import { Github, Star, GitFork, Eye, Loader2, ArrowRight, Wand2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
+import { generateProjectDescription } from "@/ai/flows/generate-project-description";
 
 
 interface Repo {
   id: number;
   name: string;
-  description: string;
+  description: string | null;
   html_url: string;
   stargazers_count: number;
   forks_count: number;
@@ -37,6 +38,7 @@ export default function GitHubProjects() {
   const [repos, setRepos] = useState<Repo[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [generatingDescriptions, setGeneratingDescriptions] = useState<Record<number, boolean>>({});
   const { toast } = useToast();
 
   const fetchRepos = async (user: string) => {
@@ -49,9 +51,9 @@ export default function GitHubProjects() {
       }
       const data: Repo[] = await response.json();
       
-      const reposWithDescriptions = data.filter(repo => !repo.private);
+      const publicRepos = data.filter(repo => !repo.private);
 
-      setRepos(reposWithDescriptions);
+      setRepos(publicRepos);
 
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : "An unknown error occurred.";
@@ -66,6 +68,36 @@ export default function GitHubProjects() {
       setIsLoading(false);
     }
   };
+  
+  const handleGenerateDescription = useCallback(async (repoId: number) => {
+    setGeneratingDescriptions(prev => ({ ...prev, [repoId]: true }));
+    const repo = repos.find(r => r.id === repoId);
+    if (!repo) {
+      setGeneratingDescriptions(prev => ({ ...prev, [repoId]: false }));
+      return;
+    }
+
+    try {
+      const result = await generateProjectDescription({ projectName: repo.name });
+      setRepos(prevRepos => prevRepos.map(r => 
+        r.id === repoId ? { ...r, description: result.description } : r
+      ));
+      toast({
+        title: "Description generated!",
+        description: "The AI has created a new description for this project."
+      })
+    } catch (error) {
+      console.error("AI Description Error:", error);
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "Failed to generate description. Please try again."
+      })
+    } finally {
+      setGeneratingDescriptions(prev => ({ ...prev, [repoId]: false }));
+    }
+  }, [repos, toast]);
+
 
   useEffect(() => {
     fetchRepos(DEFAULT_GITHUB_USER);
@@ -99,6 +131,7 @@ export default function GitHubProjects() {
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {repos.map((repo, index) => {
             const placeholder = PlaceHolderImages[index % PlaceHolderImages.length];
+            const isGenerating = generatingDescriptions[repo.id];
             return (
               <Card key={repo.id} className="flex flex-col overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-xl">
                   <div className="relative h-48 w-full overflow-hidden">
@@ -111,12 +144,33 @@ export default function GitHubProjects() {
                     />
                   </div>
                   <CardHeader>
-                      <CardTitle className="text-xl">
+                      <CardTitle className="text-xl capitalize">
                         {repo.name.replace(/-/g, ' ').replace(/_/g, ' ')}
                       </CardTitle>
                   </CardHeader>
                   <CardContent className="flex-grow space-y-4">
-                    <p className="text-sm text-muted-foreground line-clamp-2 h-10">{repo.description || "A project by " + username}</p>
+                    <div className="h-14">
+                      {repo.description ? (
+                         <p className="text-sm text-muted-foreground line-clamp-3">{repo.description}</p>
+                      ): (
+                        <div className="flex flex-col gap-2 items-start">
+                          <p className="text-sm text-muted-foreground italic">No description provided.</p>
+                          <Button 
+                            size="sm"
+                            variant="ghost"
+                            onClick={() => handleGenerateDescription(repo.id)}
+                            disabled={isGenerating}
+                          >
+                             {isGenerating ? (
+                              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                            ) : (
+                              <Wand2 className="mr-2 h-4 w-4" />
+                            )}
+                            Generate with AI
+                          </Button>
+                        </div>
+                      )}
+                    </div>
                      <div className="flex flex-wrap gap-2">
                       {repo.language && <Badge variant="secondary">{repo.language}</Badge>}
                       {repo.topics.slice(0, 2).map(topic => <Badge key={topic} variant="outline">{topic}</Badge>)}

@@ -2,7 +2,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import {
   personalInfo,
-  skills,
   socialLinks,
   experiences,
   education,
@@ -29,8 +28,10 @@ import {
   Calendar,
   Award,
   BookOpen,
+  Wand2
 } from 'lucide-react';
 import GitHubProjects from '@/components/github-projects';
+import ProjectSuggester from '@/components/project-suggester';
 import { ScrollAnimation } from '@/components/scroll-animation';
 import {
   Sheet,
@@ -425,14 +426,33 @@ export default function Home() {
            <ScrollAnimation>
             <div className="container">
               <div className="mx-auto max-w-4xl text-center mb-12">
-                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
-                  My Work
-                </h2>
+                <div className="flex items-center justify-center gap-4">
+                  <Code className="h-8 w-8 text-primary" />
+                  <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
+                    My Work
+                  </h2>
+                </div>
                 <p className="mt-4 text-lg text-muted-foreground">
-                  A selection of my projects.
+                  A selection of my projects from GitHub.
                 </p>
               </div>
               <GitHubProjects />
+            </div>
+          </ScrollAnimation>
+          <ScrollAnimation>
+            <div className="container mt-16 md:mt-24">
+               <div className="mx-auto max-w-4xl text-center mb-12">
+                <div className="flex items-center justify-center gap-4">
+                  <Wand2 className="h-8 w-8 text-primary" />
+                  <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
+                    Need Project Ideas?
+                  </h2>
+                </div>
+                <p className="mt-4 text-lg text-muted-foreground">
+                  Let AI suggest some new projects based on my current portfolio.
+                </p>
+              </div>
+              <ProjectSuggester />
             </div>
           </ScrollAnimation>
         </section>

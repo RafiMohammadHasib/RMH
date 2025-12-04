@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -22,6 +22,7 @@ import {
 import { Loader2, Wand2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { personalInfo, skills, experiences, education } from "@/lib/data";
 
 const formSchema = z.object({
   portfolioDescription: z.string().min(50, {
@@ -32,24 +33,47 @@ const formSchema = z.object({
 
 type FormValues = z.infer<typeof formSchema>;
 
-interface ProjectSuggesterProps {
-  portfolioDescription: string;
-}
-
-export default function ProjectSuggester({
-  portfolioDescription,
-}: ProjectSuggesterProps) {
+export default function ProjectSuggester() {
   const [suggestions, setSuggestions] =
     useState<SuggestSimilarProjectsOutput | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
+  const [portfolioDescription, setPortfolioDescription] = useState("");
+
+  useEffect(() => {
+    const generatePortfolioSummary = () => {
+      const summary = `
+        ${personalInfo.bio}
+        
+        Key Skills: ${skills.join(", ")}.
+
+        Experience:
+        ${experiences.map(exp => `At ${exp.company} as ${exp.title}, I was responsible for: ${exp.responsibilities.join(", ")}`).join("\n")}
+
+        Education:
+        ${education.map(edu => `${edu.degree} from ${edu.institution}. Key project: ${edu.projects ? edu.projects[0] : 'N/A'}`).join("\n")}
+      `;
+      setPortfolioDescription(summary.replace(/\s+/g, ' ').trim());
+    };
+    generatePortfolioSummary();
+  }, []);
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
-    defaultValues: {
+    values: {
       portfolioDescription: portfolioDescription || "",
     },
+    resetOptions: {
+      keepDirtyValues: true,
+    }
   });
+  
+  useEffect(() => {
+    if (portfolioDescription) {
+      form.reset({ portfolioDescription });
+    }
+  }, [portfolioDescription, form]);
+
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     setIsLoading(true);
@@ -73,7 +97,7 @@ export default function ProjectSuggester({
   };
 
   return (
-    <div className="mt-10 mx-auto max-w-4xl">
+    <div className="mx-auto max-w-4xl">
       <Card className="bg-card">
         <CardHeader>
           <CardTitle>Portfolio Summary for AI</CardTitle>
@@ -100,7 +124,7 @@ export default function ProjectSuggester({
                   </FormItem>
                 )}
               />
-              <Button type="submit" disabled={isLoading} className="w-full" size="lg">
+              <Button type="submit" disabled={isLoading || !form.formState.isValid} className="w-full" size="lg">
                 {isLoading ? (
                   <>
                     <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -121,7 +145,7 @@ export default function ProjectSuggester({
       {suggestions && (
         <div className="mt-8 space-y-6">
           <Alert className="border-accent">
-            <AlertTitle className="font-headline text-xl">
+            <AlertTitle className="font-semibold text-xl">
               AI-Powered Reasoning
             </AlertTitle>
             <AlertDescription className="mt-2 text-muted-foreground">
@@ -131,9 +155,9 @@ export default function ProjectSuggester({
 
           <div className="grid gap-6 md:grid-cols-2">
             {suggestions.suggestedProjects.map((project, index) => (
-              <Card key={index} className="bg-background">
+              <Card key={index} className="bg-background/50">
                 <CardHeader>
-                  <CardTitle className="font-headline">
+                  <CardTitle>
                     Project Idea #{index + 1}
                   </CardTitle>
                 </CardHeader>
