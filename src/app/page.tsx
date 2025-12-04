@@ -31,7 +31,6 @@ import {
   Wand2
 } from 'lucide-react';
 import GitHubProjects from '@/components/github-projects';
-import ProjectSuggester from '@/components/project-suggester';
 import { ScrollAnimation } from '@/components/scroll-animation';
 import {
   Sheet,
@@ -437,22 +436,6 @@ export default function Home() {
                 </p>
               </div>
               <GitHubProjects />
-            </div>
-          </ScrollAnimation>
-          <ScrollAnimation>
-            <div className="container mt-16 md:mt-24">
-               <div className="mx-auto max-w-4xl text-center mb-12">
-                <div className="flex items-center justify-center gap-4">
-                  <Wand2 className="h-8 w-8 text-primary" />
-                  <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
-                    Need Project Ideas?
-                  </h2>
-                </div>
-                <p className="mt-4 text-lg text-muted-foreground">
-                  Let AI suggest some new projects based on my current portfolio.
-                </p>
-              </div>
-              <ProjectSuggester />
             </div>
           </ScrollAnimation>
         </section>
