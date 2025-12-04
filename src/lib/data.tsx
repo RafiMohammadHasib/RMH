@@ -81,7 +81,7 @@ export const experiences = [
     {
         company: "Euro IT",
         period: "July 2025 - Present",
-        title: "Business Developer and Assistant Software Engineer",
+        title: "Business development Head",
         jobType: "Full-time",
         location: "Dhaka, Bangladesh",
         description: "Driving growth by architecting strategic business plans, forging key client relationships, and ensuring product excellence from conception to delivery.",
