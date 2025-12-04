@@ -40,7 +40,6 @@ import {
 } from '@/components/ui/sheet';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { ThemeToggle } from '@/components/theme-toggle';
-import ProjectSuggester from '@/components/project-suggester';
 
 
 const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -232,9 +231,25 @@ export default function Home() {
                         ))}
                     </div>
                   </ScrollAnimation>
-                  <ScrollAnimation>
-                    <ProjectSuggester />
-                  </ScrollAnimation>
+                   <ScrollAnimation>
+                      <Card className="bg-background/50 hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
+                        <CardHeader>
+                          <CardTitle>Hobbies</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <div className="flex flex-wrap justify-center gap-4">
+                                {hobbies.map((hobby) => (
+                                    <div key={hobby.name} className="flex flex-col items-center gap-2">
+                                        <div className="p-3 bg-primary/10 rounded-full text-primary">
+                                            {hobby.icon}
+                                        </div>
+                                        <span className="text-sm text-muted-foreground">{hobby.name}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </CardContent>
+                      </Card>
+                    </ScrollAnimation>
                 </div>
 
                 <div className="space-y-8">
@@ -271,25 +286,6 @@ export default function Home() {
                       </CardContent>
                     </Card>
                   </ScrollAnimation>
-                   <ScrollAnimation>
-                      <Card className="bg-background/50 hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
-                        <CardHeader>
-                          <CardTitle>Hobbies</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            <div className="flex flex-wrap justify-center gap-4">
-                                {hobbies.map((hobby) => (
-                                    <div key={hobby.name} className="flex flex-col items-center gap-2">
-                                        <div className="p-3 bg-primary/10 rounded-full text-primary">
-                                            {hobby.icon}
-                                        </div>
-                                        <span className="text-sm text-muted-foreground">{hobby.name}</span>
-                                    </div>
-                                ))}
-                            </div>
-                        </CardContent>
-                      </Card>
-                    </ScrollAnimation>
                 </div>
             </div>
           </div>
