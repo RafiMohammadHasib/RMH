@@ -39,6 +39,7 @@ import {
   SheetClose,
 } from '@/components/ui/sheet';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
+import { ThemeToggle } from '@/components/theme-toggle';
 
 
 const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -94,7 +95,7 @@ export default function Home() {
               <span className="text-xl font-bold">{personalInfo.name.split(' ')[0]}</span>
             </Link>
 
-            <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
+            <nav className="hidden md:flex items-center gap-4 text-sm font-medium">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
@@ -104,6 +105,7 @@ export default function Home() {
                   {link.label}
                 </a>
               ))}
+              <ThemeToggle />
               <Button asChild size="sm">
                 <a href="#contact">Contact</a>
               </Button>
@@ -118,10 +120,13 @@ export default function Home() {
               </SheetTrigger>
               <SheetContent side="right">
                 <div className="grid gap-4 py-6">
-                  <Link href="/" className="flex items-center gap-2 px-4 mb-4">
-                     <Code className="h-6 w-6 text-primary" />
-                     <span className="text-xl font-bold">{personalInfo.name}</span>
-                  </Link>
+                  <div className="flex items-center justify-between px-4 mb-4">
+                     <Link href="/" className="flex items-center gap-2">
+                       <Code className="h-6 w-6 text-primary" />
+                       <span className="text-xl font-bold">{personalInfo.name}</span>
+                    </Link>
+                    <ThemeToggle />
+                  </div>
                   {navLinks.map((link) => (
                     <SheetClose asChild key={link.href}>
                       <a
@@ -145,7 +150,7 @@ export default function Home() {
         </div>
       </header>
 
-      <main className="flex-1">
+      <main className="flex-1 pt-8">
         <section id="hero" className="w-full pt-32 md:pt-40 lg:pt-48">
           <div className="container grid gap-10 lg:grid-cols-2 items-center">
             <ScrollAnimation className="space-y-4">
