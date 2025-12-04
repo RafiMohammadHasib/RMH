@@ -62,6 +62,6 @@ const suggestSimilarProjectsFlow = ai.defineFlow(
   },
   async input => {
     const {output} = await prompt(input);
-    return output!;
+    return output || { suggestedProjects: [], reasoning: '' };
   }
 );
