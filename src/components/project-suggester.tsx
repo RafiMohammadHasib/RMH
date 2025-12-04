@@ -97,78 +97,76 @@ export default function ProjectSuggester() {
   };
 
   return (
-    <div className="mx-auto max-w-4xl">
-      <Card className="bg-card">
-        <CardHeader>
-          <CardTitle>Portfolio Summary for AI</CardTitle>
-          <CardDescription>
-            This summary is automatically generated from your profile. Feel free to edit it before asking for suggestions.
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-              <FormField
-                control={form.control}
-                name="portfolioDescription"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormControl>
-                      <Textarea
-                        placeholder="Describe your projects, technologies used, and your role..."
-                        className="min-h-[150px] bg-background"
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <Button type="submit" disabled={isLoading || !form.formState.isValid} className="w-full" size="lg">
-                {isLoading ? (
-                  <>
-                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                    Generating Ideas...
-                  </>
-                ) : (
-                  <>
-                    <Wand2 className="mr-2 h-4 w-4" />
-                    Suggest Projects
-                  </>
-                )}
-              </Button>
-            </form>
-          </Form>
-        </CardContent>
-      </Card>
-
-      {suggestions && (
-        <div className="mt-8 space-y-6">
-          <Alert className="border-accent">
-            <AlertTitle className="font-semibold text-xl">
-              AI-Powered Reasoning
-            </AlertTitle>
-            <AlertDescription className="mt-2 text-muted-foreground">
-              {suggestions.reasoning}
-            </AlertDescription>
-          </Alert>
-
-          <div className="grid gap-6 md:grid-cols-2">
-            {suggestions.suggestedProjects.map((project, index) => (
-              <Card key={index} className="bg-background/50">
-                <CardHeader>
-                  <CardTitle>
-                    Project Idea #{index + 1}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">{project}</p>
-                </CardContent>
-              </Card>
-            ))}
+    <Card className="bg-background/50 hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
+      <CardHeader>
+        <div className="flex items-center gap-4">
+          <div className="p-3 bg-primary/10 rounded-lg text-primary">
+            <Wand2 className="h-6 w-6" />
           </div>
+          <CardTitle>AI Project Suggester</CardTitle>
         </div>
-      )}
-    </div>
+        <CardDescription className="pt-4">
+          Get project ideas tailored to your profile. Edit the auto-generated summary below and let AI inspire your next creation.
+        </CardDescription>
+      </CardHeader>
+      <CardContent>
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+            <FormField
+              control={form.control}
+              name="portfolioDescription"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <Textarea
+                      placeholder="Describe your projects, technologies used, and your role..."
+                      className="min-h-[120px] bg-background"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <Button type="submit" disabled={isLoading || !form.formState.isValid} className="w-full">
+              {isLoading ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  Generating Ideas...
+                </>
+              ) : (
+                <>
+                  <Wand2 className="mr-2 h-4 w-4" />
+                  Suggest Projects
+                </>
+              )}
+            </Button>
+          </form>
+        </Form>
+
+        {suggestions && (
+          <div className="mt-6 space-y-4">
+            <Alert className="border-primary/50">
+              <Wand2 className="h-4 w-4" />
+              <AlertTitle className="font-semibold">
+                AI-Powered Reasoning
+              </AlertTitle>
+              <AlertDescription className="text-muted-foreground">
+                {suggestions.reasoning}
+              </AlertDescription>
+            </Alert>
+
+            <div className="space-y-2">
+              <h4 className="font-semibold">Project Ideas:</h4>
+              <ul className="list-disc list-inside text-muted-foreground space-y-1">
+              {suggestions.suggestedProjects.map((project, index) => (
+                <li key={index}>{project}</li>
+              ))}
+              </ul>
+            </div>
+          </div>
+        )}
+      </CardContent>
+    </Card>
   );
 }
