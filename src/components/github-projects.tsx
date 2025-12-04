@@ -44,7 +44,22 @@ export default function GitHubProjects() {
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
 
-  const fetchRepos = async (user: string, pageNum: number = 1) => {
+  const handleGenerateDescription = useCallback(async (repo: Repo) => {
+    setGeneratingDescriptions(prev => ({ ...prev, [repo.id]: true }));
+    try {
+      const result = await generateProjectDescription({ projectName: repo.name });
+      setRepos(prevRepos => prevRepos.map(r =>
+        r.id === repo.id ? { ...r, description: result.description } : r
+      ));
+    } catch (error) {
+      console.error("AI Description Error:", error);
+      // Optional: show a toast on error
+    } finally {
+      setGeneratingDescriptions(prev => ({ ...prev, [repo.id]: false }));
+    }
+  }, []);
+
+  const fetchRepos = useCallback(async (user: string, pageNum: number = 1) => {
     setIsLoading(true);
     setError(null);
     setPage(pageNum);
@@ -60,6 +75,12 @@ export default function GitHubProjects() {
       setRepos(publicRepos);
       setHasMore(publicRepos.length === REPOS_PER_PAGE);
 
+      publicRepos.forEach(repo => {
+        if (!repo.description) {
+          handleGenerateDescription(repo);
+        }
+      });
+
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : "An unknown error occurred.";
       setError(errorMessage);
@@ -72,41 +93,11 @@ export default function GitHubProjects() {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [toast, handleGenerateDescription]);
   
-  const handleGenerateDescription = useCallback(async (repoId: number) => {
-    setGeneratingDescriptions(prev => ({ ...prev, [repoId]: true }));
-    const repo = repos.find(r => r.id === repoId);
-    if (!repo) {
-      setGeneratingDescriptions(prev => ({ ...prev, [repoId]: false }));
-      return;
-    }
-
-    try {
-      const result = await generateProjectDescription({ projectName: repo.name });
-      setRepos(prevRepos => prevRepos.map(r => 
-        r.id === repoId ? { ...r, description: result.description } : r
-      ));
-      toast({
-        title: "Description generated!",
-        description: "The AI has created a new description for this project."
-      })
-    } catch (error) {
-      console.error("AI Description Error:", error);
-      toast({
-        variant: "destructive",
-        title: "Error",
-        description: "Failed to generate description. Please try again."
-      })
-    } finally {
-      setGeneratingDescriptions(prev => ({ ...prev, [repoId]: false }));
-    }
-  }, [repos, toast]);
-
-
   useEffect(() => {
     fetchRepos(DEFAULT_GITHUB_USER, 1);
-  }, []);
+  }, [fetchRepos]);
 
   const handleConnect = () => {
     if (username) fetchRepos(username, 1);
@@ -165,21 +156,15 @@ export default function GitHubProjects() {
                         {repo.description ? (
                            <p className="text-sm text-muted-foreground line-clamp-3">{repo.description}</p>
                         ): (
-                          <div className="flex flex-col gap-2 items-start">
-                            <p className="text-sm text-muted-foreground italic">No description provided.</p>
-                            <Button 
-                              size="sm"
-                              variant="ghost"
-                              onClick={() => handleGenerateDescription(repo.id)}
-                              disabled={isGenerating}
-                            >
-                               {isGenerating ? (
-                                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                              ) : (
-                                <Wand2 className="mr-2 h-4 w-4" />
-                              )}
-                              Generate with AI
-                            </Button>
+                          <div className="flex items-center gap-2 text-sm text-muted-foreground italic">
+                            {isGenerating ? (
+                              <>
+                                <Loader2 className="h-4 w-4 animate-spin" />
+                                Generating description...
+                              </>
+                            ) : (
+                              <span>No description provided.</span>
+                            )}
                           </div>
                         )}
                       </div>
